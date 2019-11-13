@@ -1,0 +1,15 @@
+/* background-color: #e0a819; */
+a {
+    padding-right: 20px;
+}
+
+mat-toolbar {
+    --default-height: 50px;
+    background-color: #e0a819;
+  }
+  
+  mat-toolbar[color="primary"] {
+    top: 0;
+    position: fixed;
+    height: var(--default-height);
+  }
