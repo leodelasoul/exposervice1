@@ -1,8 +1,7 @@
 
   .content {
-    background-color: rgb(113, 112, 112);
-    background-image: url("/assets/svg/shape1.svg");
     height: 100%;
+    display: inline-flex;
 
   }
 

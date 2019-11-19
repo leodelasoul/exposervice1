@@ -6,6 +6,7 @@ a {
 mat-toolbar {
     --default-height: 50px;
     background-color: #e0a819;
+    display: none;
   }
   
   mat-toolbar[color="primary"] {

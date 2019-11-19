@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MainContentComponent} from './main/main.component';
 import {InfofooterComponent} from './info-footer/info-footer.component';
 import { HeaderComponent } from './header/header.component';
+import { LandingSectionComponent } from './landing-section/landing-section.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     MainContentComponent,
     InfofooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    LandingSectionComponent
   ],
   imports: [
     BrowserModule,

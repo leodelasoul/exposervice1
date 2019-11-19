@@ -1,0 +1,65 @@
+object{
+    order: 3;   
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .mainmenu{
+    background-color: #CCC;
+    text-decoration: none;
+    color: #000;
+    width: 25%;
+    order: 1;
+
+
+}
+
+
+
+.mainmenu a {
+    display: block;
+    background-color: #CCC;
+    text-decoration: none;
+    color: #000;
+  }
+  li{
+    list-style-type: none;
+
+  }
+
+
+.landingcontent{
+
+
+border-radius: 50%;    background-color:orange;  
+  float: right;    -webkit-shape-outside: circle(50%);  
+    shape-outside: circle(50%);
+    height: 250px;
+    width: 250px;
+
+}
+.yolo{
+    border: solid;
+    text-align: right;
+
+}
+p .landingcontent{
+    box-sizing: border-box;
+    
+}
+
+
+.wrapper > *{
+    box-sizing: border-box;
+
+}
+
+
+
+/* 
+.landingwrapper{
+    padding: 1%;
+    display: flex;
+    flex-direction: row; 
+} */

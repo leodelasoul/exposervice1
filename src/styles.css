@@ -4,6 +4,9 @@ html > body {
     font-family: Roboto, Arial, sans-serif;
     margin: 0 !important;
     
+    background-color: rgb(113, 112, 112);
+    background-image: url("/assets/svg/shape1.svg");
+    
     
 
   }
