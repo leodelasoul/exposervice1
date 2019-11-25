@@ -1,5 +1,30 @@
-<div class="articleswrapper">
+
+
+
+
+<div class="articleswrapper" (scroll)="onScroll($event)">
+    
+    
+
   <div id="1">
+      <h2> Alles auf einen Blick...</h2>
+      <mat-grid-list cols="3" rowHeight="150px" gutterSize = 0px>
+          <mat-grid-tile
+              
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+              [style.background]="tile.color">
+              
+                  <a>{{tile.text}}</a>
+                  <div *ngIf="tile.text === 'Bilder'">
+                    <img [src]="tile.pic" />
+                     
+        
+                  </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <!-- (mouseenter)="onChangeTilePic(tile.text)" -->
  
   </div>
   <div id="2">

@@ -1,10 +1,4 @@
-object{
-    order: 3;   
-    
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+
   .mainmenu{
     background-color: #CCC;
     text-decoration: none;
@@ -14,6 +8,7 @@ object{
 
 
 }
+
 
 
 
@@ -28,33 +23,89 @@ object{
 
   }
 
-
+  #fancysphere{
+  z-index:-1;
+}
 .landingcontent{
 
 
-border-radius: 50%;    background-color:orange;  
-  float: right;    -webkit-shape-outside: circle(50%);  
-    shape-outside: circle(50%);
-    height: 250px;
-    width: 250px;
+
+float: right;
+   -webkit-shape-outside:circle(41% at 204px 189px);
+    shape-outside:circle(41% at 204px 189px);
+
 
 }
-.yolo{
-    border: solid;
+
+body > app-root > app-landing-section > div > div.landingcontent > div > button{
+  /* display: table-column-group;
+  vertical-align: middle;
+  line-height: normal; */
+  
+}
+a{
+  font-size: 1.5em;
+  font-style: bold;
+}
+.landingnav{
+    padding-top: 2%;
     text-align: right;
+    line-height: 150px;
 
 }
+button{
+  border-radius: 12px
+}
+span{
+  display: inherit;
+    vertical-align: middle;
+    line-height: 50px;
+    /* padding-bottom: 2.5%; */
+    /* margin: 2%;
+    margin-right: 37%; */
+
+}
+span img{
+  position: absolute;
+}
+#span1{
+  margin-right: 361px;
+}
+#span2{
+  margin-right: 410px;
+}
+
+#span3{
+  margin-right: 428px;
+}
+#span4{
+  margin-right: 428px;
+
+}
+#span5{
+  margin-right: 419px;
+}
+
 p .landingcontent{
     box-sizing: border-box;
     
+    
 }
 
-
-.wrapper > *{
-    box-sizing: border-box;
+.wrapper{
+  width: 60%;
+  display: inline-block; 
+  padding-top: 3%;
+  height: 400px;
+}
+.wrapper2{
+  display: inline-block;
+  padding-top: 3%;
+  position: absolute;
+  top: 0;
+  left: 58%;
 
 }
-
 
 
 /* 

@@ -9,12 +9,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider'
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatGridListModule} from '@angular/material/grid-list';
 
- 
+
+
+import { WINDOW_PROVIDERS } from "./services/window.service"; 
 import { MainContentComponent} from './main/main.component';
 import {InfofooterComponent} from './info-footer/info-footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingSectionComponent } from './landing-section/landing-section.component';
+
 
 
 @NgModule({
@@ -26,6 +30,7 @@ import { LandingSectionComponent } from './landing-section/landing-section.compo
     LandingSectionComponent
   ],
   imports: [
+ 
     BrowserModule,
     AppRoutingModule,
     MatMenuModule,
@@ -35,10 +40,11 @@ import { LandingSectionComponent } from './landing-section/landing-section.compo
     MatDividerModule,
     MatListModule,
     MatToolbarModule,
+    MatGridListModule,
     
 
   ],
-  providers: [],
+  providers: [WINDOW_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

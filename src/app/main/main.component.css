@@ -8,7 +8,7 @@ h2{
   }
   
  div{
-    margin : 2%;
+    margin : 4%;
   }
 
    object{
@@ -19,3 +19,32 @@ h2{
   }
 
 
+  .yolo  {
+    /* text-align: center;
+    vertical-align: middle;
+    line-height: 90px;   */
+    position: relative;
+     
+      text-align: center;
+      width: 50%;
+      margin: auto;
+      
+    
+  
+  }
+  
+     a{
+      margin:1%;
+      background-color: #e0a819;
+      font-size: 1.5em;
+      font-style: italic;
+    }
+    
+  
+    mat-grid-tile{
+      border :solid
+    }
+    mat-grid-tile:hover {
+      background-color: #ddd;
+      color: black;
+    }
