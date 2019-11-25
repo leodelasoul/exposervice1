@@ -7,6 +7,10 @@
     position: fixed;
     top: 50%;
     right: 0px;
+    border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+    border-bottom-left-radius: 110px;
+    padding: 1%; 
+    padding-right:0%;
    
   }
   .navbar-menu{
@@ -17,14 +21,18 @@
   .navbar-menu a{
     text-align: right;
     font-size: 1.2em;
-    margin: 2%;
+    margin: 2%; 
     padding: 0;
   }
   
-  .navbar a:hover {
+  a:hover {
     background-color: #ddd;
     color: black;
   }
-  .nav.hide-nav {
-    
+  #sidenav > div > a:nth-child(1){
+    border-top-left-radius: 110px;
+  }
+  #sidenav > div > a:nth-child(6){
+    border-bottom-left-radius: 110px;
+
   }

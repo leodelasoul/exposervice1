@@ -17,21 +17,13 @@ h2{
     margin-right: auto
 
   }
+  @media(min-width: 1300px){
+  .articleswrapper{
+    width: 77%;
 
-
-  .yolo  {
-    /* text-align: center;
-    vertical-align: middle;
-    line-height: 90px;   */
-    position: relative;
-     
-      text-align: center;
-      width: 50%;
-      margin: auto;
-      
-    
-  
   }
+}
+
   
      a{
       margin:1%;
@@ -44,7 +36,7 @@ h2{
     mat-grid-tile{
       border :solid
     }
-    mat-grid-tile:hover {
+    figure:hover {
       background-color: #ddd;
       color: black;
     }
