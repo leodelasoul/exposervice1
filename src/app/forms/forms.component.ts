@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormBuilder,FormControl } from '@angular/forms';
-// import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from './material-module';
 
-
-
-// import {MatInputModule} from '@angular/material/input';
-// import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-// import {MatDatepicker} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-forms',
@@ -19,6 +13,16 @@ export class FormsComponent implements OnInit {
   private sub: any;
   items;
   checkoutForm;
+  selectNum = [
+    {value: 1, viewValue: 1},
+    {value: 2, viewValue: 2},
+    {value: 3, viewValue: 3},
+    {value: 4, viewValue: 4},
+    {value: 5, viewValue: 5},
+
+    {value: 6, viewValue: 6},
+  ];
+
 
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -48,6 +52,7 @@ export class FormsComponent implements OnInit {
         }
     };
 
+  
     this.checkoutForm = this.formBuilder.group({
       name: '',
       address: '',

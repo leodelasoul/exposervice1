@@ -1,0 +1,956 @@
+<html><head>
+<title>Bewerbungsformular</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" href="Bewerbungsformular-Dateien/texstyles.css">
+<script language="JavaScript">
+<!--
+// Check if NoaNu but replaces "," with "."
+function TD_isNavN(name,value) {
+if (value.length==0) {
+ alert("Bitte machen Sie vollständige Angaben im Feld:"+name+".");
+ return true;}
+else {
+ return false;};
+};
+
+function TD_is_name() {
+ var c = document.bewerbung.name;
+ if (TD_isNavN("Name",c.value)) { 
+   c.focus(); c.select();
+   return false;} 
+ else {
+   return true;};
+};
+
+function TD_is_vorname() {
+ var c = document.bewerbung.vorname;
+ if (TD_isNavN("Vorname",c.value)) { 
+   c.focus(); c.select();
+   return false;} 
+ else {
+   return true;};
+};
+
+function TD_is_adresse() {
+ var c = document.bewerbung.strasse;
+ if ((document.bewerbung.strasse.value.length==0)||
+     (document.bewerbung.nummer.value.length==0)||
+	 (document.bewerbung.ort.value.length==0)||
+	 (document.bewerbung.plz.value.length==0)) {
+    alert("Bitte überprüfen Sie Adressangabe.");
+    c.focus(); c.select();
+    return false;} 
+ else {
+    return true;};
+};
+
+function TD_is_telefon1() {
+ var c = document.bewerbung.telefon1;
+ if (TD_isNavN("Telefonnummer",c.value)) { 
+   c.focus(); c.select();
+   return false;} 
+ else {
+   return true;};
+};
+
+function TD_is_email() {
+ var c = document.bewerbung.email;
+ if (TD_isNavN("EMail-Adresse",c.value)) { 
+   c.focus(); c.select();
+   return false;} 
+ else {
+   return true;};
+};
+
+function TD_is_geburtsdatum() {
+ var c = document.bewerbung.geburtsdatum;
+ if (TD_isNavN("Geburtsdatum",c.value)) { 
+   c.focus(); c.select();
+   return false;} 
+ else {
+   return true;};
+};
+
+function TD_is_info() {
+ var c = document.bewerbung.informationsquelle;
+ if (c.value.length==0) {
+    alert("Bitte teilen Sie uns mit,\n wie Sie von uns erfahren haben.");
+    c.focus(); c.select();
+    return false;} 
+ else {
+    return true;};
+};
+
+function TD_is_Geschlecht() {
+ var c = document.bewerbung.geschlecht;
+ if (c.checked) {
+    return true;} 
+ else {
+    alert("Bitte bestätigen Sie die Richtigkeit Ihrer Angaben.");
+    c.focus(); c.select();
+    return false;};
+};
+
+function TD_is_groesse() {
+ var c = document.bewerbung.groesse;
+ if (c.value.length==0) {
+    alert("Bitte überprüfen Sie die Angaben im Bereich Sonstiges.");
+    c.focus(); c.select();
+    return false;} 
+ else {
+    return true;};
+};
+
+function TD_is_konfektion() {
+ var c = document.bewerbung.konfektion;
+ if (c.value.length==0) {
+    alert("Bitte überprüfen Sie die Angaben im Bereich Sonstiges.");
+    c.focus(); c.select();
+    return false;} 
+ else {
+    return true;};
+};
+
+function TD_is_schuh() {
+ var c = document.bewerbung.schuh;
+ if (c.value.length==0) {
+    alert("Bitte überprüfen Sie die Angaben im Bereich Sonstiges.");
+    c.focus(); c.select();
+    return false;} 
+ else {
+    return true;};
+};
+
+function TD_is_Confirm(){
+ var c = document.bewerbung.EingabeOK;
+ if (c.checked) {
+    return true;} 
+ else {
+    alert("Bitte bestätigen Sie die Richtigkeit Ihrer Angaben.");
+    c.focus(); c.select();
+    return false;};
+};
+
+function MM_validateForm() { 
+  var res = true;
+  res = TD_is_name()&&TD_is_vorname()&&TD_is_adresse()&&TD_is_telefon1()&&TD_is_email()&&
+        TD_is_geburtsdatum()&&TD_is_info()&&
+		TD_is_groesse()&&TD_is_konfektion()&&TD_is_schuh()&&
+		TD_is_Confirm();
+  return res;
+}
+//-->
+</script>
+</head>
+<body topmargin="0" marginwidth="0" marginheight="0" leftmargin="0" bgcolor="#EEEEEE">
+<form name="bewerbung" action="/cgi-bin/mailmanager.pl" method="POST" onsubmit="return MM_validateForm();">
+  <input name="recipient" value="bewerbung@exposervicepool.de" type="hidden">
+  <input name="subject" value="bewerbung" type="hidden">
+  <input name="redirect" value="http://www.exposervicepool.de/esp_nachricht.htm" type="hidden">
+  <table width="10" cellspacing="0" cellpadding="0" bordercolor="#CCCCCC" border="1">
+    <tbody><tr> 
+      <td colspan="2" valign="top" align="left"><img src="Bewerbungsformular-Dateien/hd_kontakt.jpg" width="586" height="63"></td>
+    </tr>
+    <tr> 
+      <td colspan="2" valign="top" align="left"> 
+        <table width="100%" cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr valign="top" align="left"> 
+            <td width="15"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext">EXPO&nbsp;SERVICEPOOL&nbsp;GbR<br>
+              Joachim-Friedrich-Straße&nbsp;1&nbsp;(1.OG)<br>
+              D–10711 Berlin (Wilmersdorf)</td>
+            <td class="stdtext">&nbsp;&nbsp;</td>
+            <td class="stdtext">
+              <div align="right">fon 030 - 821 4010 <br>
+                fax 030 - 821 5010 </div>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext" rowspan="2" valign="top"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"> 
+            </td>
+            <td class="stdtext" colspan="3" rowspan="2"><b>Bewerbung<br>
+              </b><span class="stdtextSmall">Ich erkläre mich damit einverstanden, 
+              dass meine Daten im Zuge von Jobvorschlägen dem jeweiligen 
+              Kunden teilweise zur Verfügung gestellt werden.</span></td>
+          </tr>
+          <tr> </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b class="stdtextTitel">Persönliche 
+              Daten :</b></td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="150" height="1"></td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext" colspan="2">&nbsp;</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" colspan="4"><b class="stdtextTitel"><span class="stdtextH">Die 
+                    Angaben in den mit einem Stern markierten Felder sind obligatorisch. 
+                    </span></b></td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Name</td>
+                  <td class="stdtext"> 
+                    <input name="name" size="18" maxlength="25" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtextH" colspan="2">&nbsp;</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">ggf. c/o </td>
+                  <td class="stdtext"> 
+                    <input name="name2" size="18" maxlength="25" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" colspan="2">&nbsp; </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Vorname</td>
+                  <td class="stdtext"> 
+                    <input name="vorname" size="18" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtext" colspan="2">&nbsp; </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Straße</td>
+                  <td class="stdtext"> 
+                    <input name="strasse" size="18" maxlength="30" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtext" bgcolor="#DDDDDD">&nbsp;Hausnummer </td>
+                  <td class="stdtext"> 
+                    <input name="nummer" size="5" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span></td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Ort</td>
+                  <td class="stdtext"> 
+                    <input name="ort" size="18" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtext" bgcolor="#DDDDDD">&nbsp;Postleitzahl </td>
+                  <td class="stdtext"> 
+                    <input name="plz" size="5" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Geburtsdatum&nbsp;&nbsp;</td>
+                  <td class="stdtext"> 
+                    <input name="geburtsdatum" size="18" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtext" colspan="2">&nbsp; </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" style="background: red;" bgcolor="#DDDDDD">Fon 1 (m. Vorwahl)</td>
+                  <td class="stdtext"> 
+                    <input name="telefon1" size="18" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                  <td class="stdtext" colspan="2">&nbsp; </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" style="background: red;" bgcolor="#DDDDDD">Fon 2 (m. Vorwahl)</td>
+                  <td class="stdtext"> 
+                    <input name="telefon2" size="18" maxlength="20" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" colspan="2">&nbsp; </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Funk (m. Vorwahl)</td>
+                  <td class="stdtext"> 
+                    <input name="funk" size="18" maxlength="20" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" colspan="2">&nbsp;</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" style="background: red;" bgcolor="#DDDDDD">Fax</td>
+                  <td class="stdtext"> 
+                    <input name="fax" size="18" maxlength="20" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" colspan="2">&nbsp;</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" valign="middle" bgcolor="#DDDDDD">Email</td>
+                  <td class="stdtext" colspan="3" valign="middle"> 
+                    <input name="email" size="30" maxlength="80" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> <span class="stdtextSmall"></span></td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" colspan="4" valign="top"><span class="stdtextSmall">Um 
+                    die Kontaktaufnahme zu erleichtern, möchten wir Sie bitten 
+                    Ihre aktuelle<br>
+                    eMail-Adresse anzugeben <b><font color="#FFCC66">!!!</font></b></span></td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b class="stdtextTitel">Berufsausbildung</b></td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="150" height="1"></td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext" colspan="2">&nbsp;</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Studium</td>
+                  <td class="stdtext" colspan="3"> 
+                    <input name="studium" size="18" maxlength="20" class="stdtext" type="text">
+                    Semester 
+                    <input name="semester" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Abschlussjahr</td>
+                  <td class="stdtext" colspan="3"> 
+                    <input name="abschlussjahr" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Berufsausbildung</td>
+                  <td class="stdtext" colspan="3"> 
+                    <input name="ausbildung" size="30" maxlength="30" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Führerschein</td>
+                  <td class="stdtext" colspan="3"> 
+                    <table class="stdtext" width="114" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr class="stdtext" valign="middle" align="left"> 
+                        <td width="24"> 
+                          <input name="f_pkw" value="checkbox" type="checkbox">
+                        </td>
+                        <td class="stdtext" width="27">PKW</td>
+                        <td width="24"> 
+                          <input name="f_lkw" value="checkbox" type="checkbox">
+                        </td>
+                        <td class="stdtext" width="39">LKW/Bus</td>
+                        <td width="24"> 
+                          <input name="f_motorrad" value="checkbox" type="checkbox">
+                        </td>
+                        <td class="stdtext" width="39">Motorrad</td>
+                        <td width="24"> 
+                          <input name="f_keine" value="checkbox" type="checkbox">
+                        </td>
+                        <td class="stdtext" width="39">Kein&nbsp;Führerschein</td>
+                        <td class="stdtext" width="39">&nbsp; </td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Eigener PKW</td>
+                  <td class="stdtext" colspan="3"> 
+                    <table class="stdtext" width="114" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr class="stdtext" valign="middle" align="left"> 
+                        <td width="24"> 
+                          <input name="eigener_pkw" value="ja" type="radio">
+                        </td>
+                        <td class="stdtext" width="27">ja</td>
+                        <td width="24"> 
+                          <input name="eigener_pkw" value="nein" type="radio">
+                        </td>
+                        <td class="stdtext" width="39">nein</td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Gesundheitszeugnis</td>
+                  <td class="stdtext" colspan="3"> 
+                    <table class="stdtext" width="114" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr class="stdtext" valign="middle" align="left"> 
+                        <td width="24"> 
+                          <input name="gesundheitszeugnis" value="ja" type="radio">
+                        </td>
+                        <td class="stdtext" width="27">ja</td>
+                        <td width="24"> 
+                          <input name="gesundheitszeugnis" value="nein" type="radio">
+                        </td>
+                        <td class="stdtext" width="39">nein</td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b class="stdtextTitel">Sprachkenntnisse 
+              :</b></td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="150" height="1"></td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtextSmall" colspan="2"><b>A</b>:&nbsp;sehr&nbsp;gut&nbsp;-&nbsp;<b>F</b>:&nbsp;schlecht 
+                    - <b>M</b>: Muttersprache</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Englisch</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="englisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="englischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Französich</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="franzoesisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="franzoesischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Spanisch</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="spanisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="spanischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Italienisch</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="italienisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="italienischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Türkisch</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="tuerkisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="tuerkischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Persisch</td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext"> 
+                    <div align="center"> 
+                      <input name="persisch" value="ja" type="checkbox">
+                    </div>
+                  </td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="persischkentniss" size="5" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD">Sonstiges<br>
+                    <span class="stdtextSmall">(Mehrfachnennung möglich)</span></td>
+                  <td class="stdtext">&nbsp;</td>
+                  <td class="stdtext" colspan="3"> 
+                    <input name="sonstigesprachen" size="40" maxlength="80" class="stdtext" type="text">
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" valign="middle"><b>Arbeiten Sie regelmäßig 
+              für andere Agenturen ? </b> </td>
+            <td class="stdtext" valign="top"><b> </b> 
+              <table class="stdtext" width="114" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr class="stdtext" valign="middle" align="left"> 
+                  <td width="24"> 
+                    <input name="andere_agentur" value="ja" checked="checked" type="radio">
+                  </td>
+                  <td class="stdtext" width="27">ja</td>
+                  <td width="24"> 
+                    <input name="andere_agentur" value="nein" type="radio">
+                  </td>
+                  <td class="stdtext" width="39">nein</td>
+                </tr>
+              </tbody></table>
+              
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b>Kongress-, Service- oder Veranstaltungseinsätze 
+              </b> </td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="100" height="1"></td>
+                  <td class="stdtext" valign="bottom" align="center">ja</td>
+                  <td class="stdtext" valign="bottom" align="center">Veranstaltung</td>
+                  <td class="stdtext" valign="bottom" align="center">Agentur+Stadt</td>
+                  <td class="stdtext" valign="bottom" align="center">Dauer<br>
+                    (Monate)</td>
+                  <td class="stdtext" valign="bottom" align="center">Jahr</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Promotion</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_promotion" value="ja" type="checkbox" checked="checked">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_promotion_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_promotion_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_promotion_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_promotion_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Messe</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_messe" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_messe_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_messe_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_messe_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_messe_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Konferenz</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_konferenz" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_konferenz_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_konferenz_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_konferenz_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_konferenz_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Verkauf</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_verkauf" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_verkauf_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_verkauf_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_verkauf_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_verkauf_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Moderation</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_moderation" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_moderation_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_moderation_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_moderation_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_moderation_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Gastronomie<br>
+                    Catering</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_gastronomiecatering" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_gastronomie_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_gastronomie_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_gstronomie_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_gastronomie_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Model/Laufsteg</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_modellaufsteg" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_model_veranstalung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_model_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_model_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_mode_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Fahrerfahrung 
+                    <br>
+                    (7,5t LKW)</td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_fahrerfahrung" value="ja" type="checkbox">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_fahrerfahrung_veranstaltung" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="e_fahrerfahrung_ort" size="22" maxlength="40" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_fahrerfahrung_dauer" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext" height="30">
+                    <input name="e_fahrerfahrung_jahr" size="4" maxlength="4" class="stdtext" type="text">
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b>Teamleitungs-/Chefhostessen- etc. 
+              erfahrung und/oder besondere Fähigkeiten </b></td>
+          </tr>
+          <tr> 
+            <td class="stdtext" valign="top" align="left">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr> 
+                  <td class="stdtext" colspan="3" valign="top" align="left"> 
+                    <textarea name="zusatzqualifikation" cols="60" rows="4" class="stdtext" wrap="VIRTUAL"></textarea>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext" valign="top"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" vspace="2" height="13"></td>
+            <td class="stdtext" colspan="3"><b>Wie haben Sie von unserem Unternehmen 
+              erfahren ? <span class="stdtextH">*</span></b> </td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <textarea name="informationsquelle" cols="60" class="stdtext" rows="4"></textarea>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table style="background: red;" cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext" valign="top"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" vspace="2" height="13"></td>
+            <td class="stdtext" colspan="3"><b>Besteht eine kostenfreie Wohnmöglichkeit 
+              in anderen deutschen Städten? <br>
+              Wenn ja - wo? </b> </td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3"> 
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="40" height="1"></td>
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="40" height="1"></td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD"> 
+                    <div align="right">1.</div>
+                  </td>
+                  <td class="stdtext" height="30"> 
+                    <input name="Einsatzort1" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD"> 
+                    <div align="right">2.</div>
+                  </td>
+                  <td class="stdtext"> 
+                    <input name="Einsatzort2" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD"> 
+                    <div align="right">3.</div>
+                  </td>
+                  <td class="stdtext"> 
+                    <input name="Einsatzort3" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD"> 
+                    <div align="right">4.</div>
+                  </td>
+                  <td class="stdtext"> 
+                    <input name="Einsatzort4" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" bgcolor="#DDDDDD"> 
+                    <div align="right">5.</div>
+                  </td>
+                  <td class="stdtext"> 
+                    <input name="Einsatzort5" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table width="300" cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtext" colspan="3"><b>Sonstige Angaben</b></td>
+          </tr>
+          <tr> 
+            <td class="stdtext">&nbsp; </td>
+            <td class="stdtext" colspan="3">
+              <table cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr valign="middle" align="left"> 
+                  <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="150" height="1"></td>
+                  <td class="stdtext" colspan="2"><img src="Bewerbungsformular-Dateien/t.gif" width="150" height="1"></td>
+                </tr>
+                <tr style="background: red;" valign="middle" align="left"> 
+                  <td class="stdtext" style="background: red;" width="200" height="30" bgcolor="#DDDDDD">Geschlecht</td>
+                  <td class="stdtext" colspan="2"> 
+                    <table class="stdtext" width="114" cellspacing="0" cellpadding="0" border="0">
+                      <tbody><tr class="stdtext" valign="middle" align="left"> 
+                        <td width="24"> 
+                          <input name="geschlecht" value="männlich" checked="checked" type="radio">
+                        </td>
+                        <td class="stdtext" width="27">m</td>
+                        <td width="24"> 
+                          <input name="geschlecht" value="weiblich" type="radio">
+                        </td>
+                        <td class="stdtext" width="39">w</td>
+                        <td class="stdtext" width="39"> <span class="stdtextH">*</span></td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Körpergröße</td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="groesse" size="25" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Konfektionsgröße</td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="konfektion" size="25" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Schuhgröße</td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="schuh" size="25" maxlength="20" class="stdtext" type="text">
+                    <span class="stdtextH">*</span> </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" height="30" bgcolor="#DDDDDD">Lohnsteuerklasse</td>
+                  <td class="stdtext" colspan="2"> 
+                    <input name="lklasse" size="25" maxlength="20" class="stdtext" type="text">
+                  </td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" style="background: orange;" height="30" bgcolor="#DDDDDD">Gewerbescheinnummer</td>
+                  <td class="stdtextSmall"> 
+                    <input name="gnummer" size="25" maxlength="25" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtextSmall">Bitte ggf. Kopie beifügen.</td>
+                </tr>
+                <tr valign="middle" align="left"> 
+                  <td class="stdtext" style="background: red;" height="30" bgcolor="#DDDDDD">Steuernummer&nbsp;&amp;&nbsp;Finanzamt<br>
+                  </td>
+                  <td class="stdtext"> 
+                    <input name="strnrfamt" size="25" maxlength="60" class="stdtext" type="text">
+                  </td>
+                  <td class="stdtext">&nbsp;</td>
+                </tr>
+                <tr valign="top" align="left"> 
+                  <td class="stdtextSmall" colspan="3">(Bitte <b>nicht</b> die 
+                    Nummer der Lohnsteuerkarte angeben. Die Steuernummer kann 
+                    gesondert beim Finanzamt beantragt werden.)</td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        <br>
+        <table cellspacing="2" cellpadding="0" border="0">
+          <tbody><tr> 
+            <td class="stdtext"><img src="Bewerbungsformular-Dateien/t.gif" width="15" height="1"></td>
+            <td class="stdtext" colspan="3"><img src="Bewerbungsformular-Dateien/t.gif" width="500" height="1"></td>
+          </tr>
+          <tr> 
+            <td class="stdtext" valign="top" align="left"><img src="Bewerbungsformular-Dateien/i01_kontakt.jpg" width="13" height="13"></td>
+            <td class="stdtextSmall" colspan="3"> 
+              <p><b class="stdtext">Hinweise </b></p>
+              <p><b>Wir machen darauf aufmerksam, dass diese Bewerbung auf Grund 
+                einer Kooperation der Agentur "exposervicepool GbR" 
+                mit der "Berliner Ideenschmiede", zur besseren und vielfältigeren 
+                Vermittlung in den Bereichen Messe, Konferenz und Promotion in 
+                einer gemeinsamen Datei gespeichert wird. Alle genannten Angaben 
+                sind wesentlicher Bestandteil für den Abschluss aller Verträge 
+                zwischen den beiden Vertragspartnern.</b></p>
+              <p><b>Bei Postversand:</b><br>
+                Wählen Sie die Schaltfläche "Formular drucken", 
+                um die Formularinhalte an einen angeschlossenen Drucker zu senden. 
+                BITTE legen Sie unbedingt ein aktuelles Paß- und ein Ganzkörperfoto 
+                guter Qualität u. ausreichender Größe (mind. 8x8 cm) bei, das 
+                bei der Firma exposervicepool GbR verbleiben kann - es wird der 
+                Personaldatei beigelegt. </p>
+              <p><a href="#" onclick="window.print();return false"><img src="Bewerbungsformular-Dateien/b_drucken.jpg" width="127" hspace="0" height="19" border="0"></a></p>
+              <p><b>Bei Mailversand:</b><br>
+                Bitte drücken Sie die "Formular absenden"-Schaltfläche, 
+                um das Formular per Email zu versenden. Zur Fotosendung verwenden 
+                Sie bitte die Adresse <a href="mailto:bewerbung@exposervicepool.de"><b><span class="stdtextSmall">bewerbung@exposervicepool.de</span></b></a>. 
+                Bitte versuchen Sie NICHT das Bewerbungsformuar mit Ihren Bildern 
+                zu koppeln. Danke !&nbsp;&nbsp;</p>
+              <table width="100%" cellspacing="2" cellpadding="0" border="0">
+                <tbody><tr> 
+                  <td valign="top"> 
+                    <input name="EingabeOK" value="AllesOK" type="checkbox">
+                  </td>
+                  <td valign="top"> 
+                    <p class="stdtextH">Ja, mit diesem Häkchen an dieser 
+                      Stelle bestätige ich die Richtigkeit meiner oben gemachten 
+                      Angaben, und versichere, die exposervicepool GbR bei jeder 
+                      Änderung umgehend in Kenntnis zu setzen. Vor einem 
+                      ersten Einsatz wird die Aktualität der Angaben erneut 
+                      bestätigt werden müssen.</p>
+                  </td>
+                </tr>
+              </tbody></table>
+              <p>
+                <input name="imageField" src="Bewerbungsformular-Dateien/b_senden.jpg" type="image" border="0">
+              </p>
+              <p><b>!!! Unrichtige Angaben führen zur sofortigen Auflösung 
+                jeglicher Geschäftsbeziehung !!!</b></p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+  <br>
+</form>
+
+
+</body></html>
