@@ -1,23 +1,24 @@
-<div class = "wrapper">
+<div class = "wrapper" *ngIf="router.url == '/'">
     <!-- <div class="lol"> -->
             <div class= "landingcontent">
-                    <!-- <h2> Alles auf einen Blick...</h2>
-                    <button>Bekleidung</button>
-                    <button>Personalanfrage</button>
-                    <button>Bewerbung als Host bzw. Hostess</button>
-                 -->
-                 <object id="fancysphere"data="assets/svg/shape27.svg" type="image/svg+xml" >
-                    <img src="assets/svg/shape27.svg" alt="expo Service ">
+                  
+                  <div id="buttonContainerId" class= "round-button-container">
+                    <div (click) = "goTo(1)"><p>Personalanfrage</p></div>
+                    <div (click) = "goTo(2)"><p>Bekleidung</p></div>
+                    <div (click) = "goTo(3)"><p>Bewerbungsformular</p></div>
+
+                    <div id="expo Vita" (click)="onClick('expo Vita')"><p>expo Vita</p></div>
+                 
+
+                 </div> 
+                   
+                    <img src="assets/svg/shape27.svg" alt="expo Service " width= "600" height="600" >
                     
-
-                    </object>
-                   
-                   
-
+                    
                 </div> 
                 
 
-            <div class="landingnav"> 
+            <div id="buttonContainerId2" class="landingnav" style="visibility: hidden;"> 
                     
                     <span id= "span1"><a (click)="onClick('2')" >Was wir für Sie tun können...</a> <img src="assets/button1.png" alt="expo Service " ></span> 
                     <span id= "span2"><a (click)="onClick('3')">Hostessen & Servicepersonal</a><img src="assets/button1.png" alt="expo Service " ></span> 
@@ -25,8 +26,7 @@
                     <span id= "span4"><a (click)="onClick('5')">Wer wir sind...</a><img src="assets/button1.png" alt="expo Service " ></span>
                     <span id= "span5"><a (click)="onClick('6')">Referenzen</a><img src="assets/button1.png" alt="expo Service " ></span>
             
-            <div>
-    </div>
+            </div>
     <div class = "wrapper2" >
 
        
@@ -34,7 +34,8 @@
 
     </div>
      
-  
+</div>
+
     
 <!--             
         <nav class="navigation">

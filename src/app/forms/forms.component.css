@@ -1,0 +1,121 @@
+.divContainer  ,.divContainer1 {
+    width: 50%;
+    /* max-width: 300px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7%;
+    position: relative;
+
+
+    
+}
+
+.example-form {
+    box-shadow:0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    background-color: white;
+
+    min-width: 150px;
+    height: auto;
+    padding: 0 24px;
+
+
+    border-radius: 5px;
+    overflow: hidden;
+    transition: margin 225ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    margin-bottom: 0.5%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  .example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field  , h4{
+  margin-right: 12px;
+  line-height: 1.125;
+    font-family: unset;
+    font-weight: bolder;
+    font-size: larger;
+}
+mat-expansion-panel-header{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: larger;
+    }
+    .mainheader{
+    padding: 1%;
+    line-height: 1.125;
+    font-family: unset;
+    font-weight: bolder;
+    font-size: 1.8em;
+
+}
+div > h4{
+    text-align: left;
+}
+#skr{
+    padding-left: 42%;
+
+}
+example-radio-group {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+  }
+  example-radio-button.example-radio-button{
+    font-family: 'Open Sans Condensed', sans-serif;
+
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+   div.radioContainer{
+      position: relative;
+      padding-bottom: 24px;
+      text-align: center;
+
+
+  }
+
+  div.radioContainer > label{
+  position: absolute;
+  left: 0;
+  font-size: larger;
+
+
+}
+
+mat-radio-group.example-radio-group.mat-radio-group{
+  position: absolute;
+}
+/* 
+mat-flat-button mat-button-base mat-primary */
+
+button.mat-flat-button {
+    position: absolute;
+    margin-top: 2%;
+    width: 160px;
+    right: 0%;
+    height: 50px;
+    background-color: #e0a819;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-radio-button{
+  font-family: unset;
+  
+}

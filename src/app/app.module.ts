@@ -10,15 +10,29 @@ import {MatDividerModule} from '@angular/material/divider'
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { RouterModule, Routes } from '@angular/router';
+
 
 
 
 import { WINDOW_PROVIDERS } from "./services/window.service"; 
+// import {FORM_PROVIDERS} from "./services/bekleidungsForm.service"
 import { MainContentComponent} from './main/main.component';
 import {InfofooterComponent} from './info-footer/info-footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingSectionComponent } from './landing-section/landing-section.component';
+import { FormsComponent } from './forms/forms.component';
+import {AngularMaterial} from './material-module';
 
+
+const appRoutes: Routes = [
+  // { path: 'form/:id', component: FormsComponent, outlet: "form-out",  pathMatch: 'full'}];
+  {
+    path : 'form/:id', component: FormsComponent
+  }
+
+]
+  
 
 
 @NgModule({
@@ -27,10 +41,12 @@ import { LandingSectionComponent } from './landing-section/landing-section.compo
     MainContentComponent,
     InfofooterComponent,
     HeaderComponent,
-    LandingSectionComponent
+    LandingSectionComponent,
+    FormsComponent,
+    
   ],
   imports: [
- 
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,
     MatMenuModule,
@@ -41,10 +57,14 @@ import { LandingSectionComponent } from './landing-section/landing-section.compo
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
+    AngularMaterial
     
 
   ],
-  providers: [WINDOW_PROVIDERS],
+  providers: [WINDOW_PROVIDERS,
+  
+  
+  ], //FORM_PROVIDERS
   bootstrap: [AppComponent]
 })
 export class AppModule { }
