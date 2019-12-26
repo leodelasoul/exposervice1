@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from ".././services/window.service";
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ import { WINDOW } from ".././services/window.service";
 export class HeaderComponent implements OnInit {
   //@ViewChild('sidenav',{static: false})
   @ViewChild('sidenav',{static:false}) input; 
-  
+  private isOn = true;
 
   constructor(
     private viewportScroller: ViewportScroller,
@@ -40,27 +41,46 @@ export class HeaderComponent implements OnInit {
 
 
 
-  public onClick(navItem: string): void {
-    if(navItem = "home"){
+  public navTo(navItem: string): void {
+    
+    console.log(navItem);
+    if(navItem == "home"){
       this.router.navigate(['/']);
+    }
+    else if(navItem == "pers"){
+      this.router.navigate(['/form/1'])
+    }
+    else if(navItem == "bekleid"){
+      this.router.navigate(['/form/2'])
+    }
+    else if(navItem == "bewerb"){
+      this.router.navigate(['/form/3'])
+      
+    }
+    else if(navItem == "datenschutz"){
+      this.router.navigate(['/datenschutz'])
+    }
+    
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+
+    
+    let scrollLevel = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+    console.log(scrollLevel)
+    if (scrollLevel < 100) {
+
+      this.isOn = true;
+    } else if(scrollLevel > 200) {
+      // document.querySelector("nav").style.cssText = "display:initial"
+      this.isOn = false;
+      // document.querySelector("nav").style.cssText = "position:fixed"
 
     }
   }
-
-//   @HostListener('window:scroll', ['$event']) // for window scroll events
-//   onScroll(event) {
-
-//     let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-//     if (number < 700) {
-//       //hide that shit
-//       // this.elementRef.nativeElement //whole component 
-//       document.querySelector("nav").style.cssText = "display:none"
-//     } else {
-//       document.querySelector("nav").style.cssText = "display:initial"
-//     }
-//   }
-// }
 }
+
 
 function _window(): any {
   return window

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { FormBuilder,FormControl } from '@angular/forms';
-
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -22,42 +21,61 @@ export class FormsComponent implements OnInit {
 
     {value: 6, viewValue: 6},
   ];
+  bekleiForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    address : new FormControl(''),
+    city : new FormControl(''),
+    postCode : new FormControl(''),
+    kleidsize : new FormControl(''),
+    kleidamount : new FormControl(''),
+    blusesize : new FormControl(''),
+    bluseamount : new FormControl(''),
+    hosesize : new FormControl(''),
+    hoseamount : new FormControl(''),
+    bluse1size : new FormControl(''),
+    bluse1amount :  new FormControl(''),
+    kostumsize : new FormControl(''),
+    kostumamount : new FormControl('')
+    
+
+  });
 
 
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router : Router) {
 
-    this.items = {
-        Etuikleid : {
-          size: "33-44",
-          amount: "vorhanden"
-        },
-        Hosenanzug : {
-          size: "XS-XL",
-          amount: "vorhanden"
-        },
-        Kostüm: {
-          size: "XS-XL",
-          amount: "vorhanden"
-        },
-        Bluse: {
-          size: "XS-XL",
-          amount: "vorhanden",
+    // this.items = {
+    //     Etuikleid : {
+    //       size: "33-44",
+    //       amount: "vorhanden"
+    //     },
+    //     Hosenanzug : {
+    //       size: "XS-XL",
+    //       amount: "vorhanden"
+    //     },
+    //     Kostüm: {
+    //       size: "XS-XL",
+    //       amount: "vorhanden"
+    //     },
+    //     Bluse: {
+    //       size: "XS-XL",
+    //       amount: "vorhanden",
           
-        },
-        Bluse1: {
-          size: "XS-XL",
-          amount: "vorhanden"
-        }
-    };
+    //     },
+    //     Bluse1: {
+    //       size: "XS-XL",
+    //       amount: "vorhanden"
+    //     }
+    // };
 
   
-    this.checkoutForm = this.formBuilder.group({
-      name: '',
-      address: '',
-      telephone: "",
-    });
+    // this.checkoutForm = this.formBuilder.group({
+    //   name: '',
+    //   address: '',
+    //   telephone: "",
+    // });
 
   }
   step = 0;
@@ -74,10 +92,11 @@ export class FormsComponent implements OnInit {
     this.step--;
   }
   
-  onSubmit(customerData) {
+  onSubmit() {
     // Process checkout data here
-
-    this.checkoutForm.reset();
+    console.warn(this.bekleiForm.value);
+    this.bekleiForm.reset();
+    // this.checkoutForm.reset();
   }
 
 

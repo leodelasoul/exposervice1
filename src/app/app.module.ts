@@ -22,13 +22,18 @@ import {InfofooterComponent} from './info-footer/info-footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingSectionComponent } from './landing-section/landing-section.component';
 import { FormsComponent } from './forms/forms.component';
-import {AngularMaterial} from './material-module';
+import {AngularMaterial} from './material-module'
+import {DataSecComponent} from './data-sec/data-sec.component'
 
 
 const appRoutes: Routes = [
   // { path: 'form/:id', component: FormsComponent, outlet: "form-out",  pathMatch: 'full'}];
   {
     path : 'form/:id', component: FormsComponent
+    
+  },
+  {
+    path : 'datenschutz', component : DataSecComponent
   }
 
 ]
@@ -43,6 +48,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     LandingSectionComponent,
     FormsComponent,
+    DataSecComponent
     
   ],
   imports: [
@@ -57,7 +63,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
-    AngularMaterial
+    AngularMaterial,
+    
     
 
   ],

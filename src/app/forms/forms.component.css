@@ -17,6 +17,7 @@
     min-width: 150px;
     height: auto;
     padding: 0 24px;
+    padding-bottom: 2%;
 
 
     border-radius: 5px;
@@ -118,4 +119,7 @@ button.mat-flat-button {
 .mat-radio-button{
   font-family: unset;
   
+}
+.clothImages{
+  float: right;
 }

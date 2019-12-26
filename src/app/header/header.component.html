@@ -1,14 +1,14 @@
-<nav id="sidenav" (scroll)="onScroll($event)">
+<nav id="sidenav" (scroll)="onScroll($event)" *ngIf="isOn">
 
 
 
   <div class="navbar-menu">
 
-    <a class="navbar-item" (click)="onClick('home')">Startseite</a>
-    <a class="navbar-item" (click)="onClick('2')">Personalanfrage</a>
-    <a class="navbar-item" (click)="onClick('3')">Bekleidung</a>
-    <a class="navbar-item" (click)="onClick('4')">Bewerbungsformular</a>
-    <a class="navbar-item" (click)="onClick('5')">expo Vita</a>
+    <a class="navbar-item" (click)="navTo('home')">Startseite</a>
+    <a class="navbar-item" (click)="navTo('pers')">Personalanfrage</a>
+    <a class="navbar-item" (click)="navTo('bekleid')">Bekleidung</a>
+    <a class="navbar-item" (click)="navTo('bewerb')">Bewerbungsformular</a>
+    <a class="navbar-item" (click)="navTo('datenschutz')">Datenschutzerklärung</a>
 
   </div>
   <div class = "navbar-img">
