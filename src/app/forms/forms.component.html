@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="divContainer" *ngIf="router.url == '/form/2'">
-    <form class="example-form"  [formGroup]="bekleiForm"  >
+    <form class="example-form" [formGroup]="bekleiForm">
         <mat-panel-title class="mainheader">
             Bekleidung
         </mat-panel-title>
@@ -10,29 +10,44 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Vorname" formControlName="firstName">
+                        <input matInput placeholder="Vorname" (change)="onChange()" formControlName="firstName">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nachnahme" formControlName="firstName">
+                        <input matInput placeholder="Nachnahme" (change)="onChange()" formControlName="lastName">
                     </mat-form-field>
                 </td>
             </tr>
         </table>
 
-        <p>
-            <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Addresse" formControlName="address"></textarea>
-            </mat-form-field>
-   
-        </p>
+
 
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ort" formControlName="city">
+                        <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
+                        <textarea matInput placeholder="Adresse" (change)="onChange()"
+                            formControlName="address"></textarea>
+                    </mat-form-field>
+
+                </td>
+
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
+                        <input matInput placeholder="Email" (change)="onChange()" formControlName="email">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ort" formControlName="city" (change)="onChange()">
                     </mat-form-field>
                 </td>
                 <!-- <td><mat-form-field class="example-full-width">
@@ -40,146 +55,152 @@
                   </mat-form-field></td> -->
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput #postalCode maxlength="5" placeholder="PLZ"  formControlName="postCode">
+                        <input matInput #postalCode maxlength="5" placeholder="PLZ" (change)="onChange()"
+                            formControlName="postCode">
                         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                     </mat-form-field>
                 </td>
             </tr>
         </table>
 
-    <mat-accordion class="example-headers-align">
-        <mat-expansion-panel (opened)="setStep(0)" hideToggle  >
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Etuikleid
-                </mat-panel-title>
-                <mat-panel-description>
-                    Größen: 34 - 44
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Etuikleid
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Größen: 34 - 44
 
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <input matInput placeholder="gewünschte Größe" formControlName="kleidsize"> 
-            </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="gewünschte Größe" formControlName="kleidsize">
+                </mat-form-field>
 
-            <mat-form-field>
-                <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kleidamount">
-            </mat-form-field>
-            <div class="clothImages">
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kleidamount">
+                </mat-form-field>
+                <div class="clothImages">
                     <img matPrefix src="./assets/kleid.jpg" height="400px">
-            </div>
+                </div>
 
-            
-            <mat-action-row>
+
+                <mat-action-row>
                     <button mat-button color="warn" (click)="prevStep()">Zurück</button>
                     <button mat-button color="primary" (click)="nextStep()">Weiter</button>
                 </mat-action-row>
 
 
-        </mat-expansion-panel>
+            </mat-expansion-panel>
 
-        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Hosenanzug
-                </mat-panel-title>
-                <mat-panel-description>
-                    Größen: XS - XL
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-form-field>
-                <input matInput placeholder="gewünschte Größe" formControlName="hosesize">
-            </mat-form-field>
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Hosenanzug
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Größen: XS - XL
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <input matInput placeholder="gewünschte Größe" formControlName="hosesize">
+                </mat-form-field>
 
-            <mat-form-field>
-                <input matInput type="number" min="1" placeholder="Anzahl" formControlName="hoseamount">
-            </mat-form-field>
-
-
-            <mat-action-row>
-                <button mat-button color="warn" (click)="prevStep()">Zurück</button>
-                <button mat-button color="primary" (click)="nextStep()">Weiter</button>
-            </mat-action-row>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Kostüm
-                </mat-panel-title>
-                <mat-panel-description>
-                    Größen: XS - XL
-
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <mat-form-field>
-                <input matInput placeholder="gewünschte Größe" formControlName="kostumsize">
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kostumamount">
-            </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Anzahl" formControlName="hoseamount">
+                </mat-form-field>
 
 
-            <mat-action-row>
-                <button mat-button color="warn" (click)="prevStep()">Zurück</button>
-                <button mat-button color="primary" (click)="nextStep()">Weiter</button>
-            </mat-action-row>
-        </mat-expansion-panel>
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                    <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                </mat-action-row>
+            </mat-expansion-panel>
 
-        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Bluse
-                </mat-panel-title>
-                <mat-panel-description>
-                    Größen: XS - XL
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-form-field>
-                <input matInput placeholder="gewünschte Größe" formControlName="blusesize">
-            </mat-form-field>
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Kostüm
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Größen: XS - XL
 
-            <mat-form-field>
-                <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluseamount"> 
-            </mat-form-field>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
 
-            <mat-action-row>
-                <button mat-button color="warn" (click)="prevStep()">Zurück</button>
-                <button mat-button color="primary" (click)="nextStep()">Weiter</button>
-            </mat-action-row>
-        </mat-expansion-panel>
-        <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Bluse 1
-                </mat-panel-title>
-                <mat-panel-description>
-                    Größen: XS - XL
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-form-field>
-                <input matInput placeholder="gewünschte Größe"  formControlName="bluse1size">
-            </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="gewünschte Größe" formControlName="kostumsize">
+                </mat-form-field>
 
-            <mat-form-field>
-                <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluse1amount">
-            </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kostumamount">
+                </mat-form-field>
 
 
-            <mat-action-row>
-                <button mat-button color="warn" (click)="prevStep()">Zurück</button>
-            </mat-action-row>
-        </mat-expansion-panel>
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                    <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                </mat-action-row>
+            </mat-expansion-panel>
 
-    </mat-accordion>
+            <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Bluse
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Größen: XS - XL
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <input matInput placeholder="gewünschte Größe" formControlName="blusesize">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluseamount">
+                </mat-form-field>
+
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                    <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Bluse 1
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Größen: XS - XL
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <input matInput (change)="onChange" placeholder="gewünschte Größe" formControlName="bluse1size">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluse1amount">
+                </mat-form-field>
 
 
-</form>
+                <mat-action-row>
+                    <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                </mat-action-row>
+            </mat-expansion-panel>
 
-    <button (click)= "onSubmit()" mat-flat-button color="primary">Abschicken</button>
+        </mat-accordion>
+
+        <section class="example-section" *ngIf="isFilled">
+            <mat-checkbox>Wünschen Sie Personal für ihre Veranstaltung? </mat-checkbox>
+        </section>
+
+
+
+    </form>
+
+    <button (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
 
 
 
@@ -692,16 +713,40 @@
     </form>
 
 
-    <button mat-flat-button color="primary">Abschicken</button>
+    <button  (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
 
 </div>
 
 
 <div class="divContainer1" *ngIf="router.url == '/form/1'">
-    Personal
-
-    <button mat-flat-button color="primary">Abschicken</button>
+    <form class="example-form" [formGroup]="personForm">
+            <mat-panel-title class="mainheader">
+                Personalanfrage
+            </mat-panel-title >
+            
+            
+            <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Vorname" (change)="onChange()" formControlName="firstName">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Nachnahme" (change)="onChange()" formControlName="lastName">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    </table>
+        </form>
+    
+    <button (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
 
 </div>
 
-<router-outlet></router-outlet>
+
+
+
+
+        <router-outlet></router-outlet>

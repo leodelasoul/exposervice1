@@ -123,3 +123,11 @@ button.mat-flat-button {
 .clothImages{
   float: right;
 }
+
+section{
+  padding : 1%;
+}
+mat-checkbox{
+  font-family: 'Open Sans Condensed', sans-serif !important;
+  font-size: larger;
+}

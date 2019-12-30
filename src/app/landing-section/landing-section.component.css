@@ -164,10 +164,9 @@ p .landingcontent{
 
 }
 .circle {
-  height: 548px;
-  width: 534px;
-
-  border-radius: 50%;
+  height: 500px;
+    width: 500px;
+    border-radius: 50%;
 }
 .circle::before {
   content: '';
@@ -188,9 +187,9 @@ p .landingcontent{
   font-size: 1.1em;
 
   position: absolute;
-  top: 4%;
+  top: 9%;
   /* left: inherit; */
   z-index: 99;
-  right: 0;
+  right: 4%;
 
 }

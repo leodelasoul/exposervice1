@@ -11,6 +11,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatGridListModule} from '@angular/material/grid-list';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 
 
 
@@ -24,6 +25,7 @@ import { LandingSectionComponent } from './landing-section/landing-section.compo
 import { FormsComponent } from './forms/forms.component';
 import {AngularMaterial} from './material-module'
 import {DataSecComponent} from './data-sec/data-sec.component'
+import { MessageService } from './services/message.service';
 
 
 const appRoutes: Routes = [
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     LandingSectionComponent,
     FormsComponent,
-    DataSecComponent
+    DataSecComponent,
+    
     
   ],
   imports: [
@@ -64,11 +67,11 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatGridListModule,
     AngularMaterial,
-    
+    HttpClientModule
     
 
   ],
-  providers: [WINDOW_PROVIDERS,
+  providers: [WINDOW_PROVIDERS,MessageService
   
   
   ], //FORM_PROVIDERS
