@@ -10,12 +10,14 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Vorname" (change)="onChange()" formControlName="firstName">
+                        <input matInput placeholder="Vorname" (change)="onChange(bekleiForm)"
+                            formControlName="firstName">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nachnahme" (change)="onChange()" formControlName="lastName">
+                        <input matInput placeholder="Nachnahme" (change)="onChange(bekleiForm)"
+                            formControlName="lastName">
                     </mat-form-field>
                 </td>
             </tr>
@@ -28,7 +30,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
-                        <textarea matInput placeholder="Adresse" (change)="onChange()"
+                        <textarea matInput placeholder="Adresse" (change)="onChange(bekleiForm)"
                             formControlName="address"></textarea>
                     </mat-form-field>
 
@@ -37,7 +39,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
-                        <input matInput placeholder="Email" (change)="onChange()" formControlName="email">
+                        <input matInput placeholder="Email" (change)="onChange(bekleiForm)" formControlName="email">
                     </mat-form-field>
                 </td>
             </tr>
@@ -47,7 +49,7 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ort" formControlName="city" (change)="onChange()">
+                        <input matInput placeholder="Ort" formControlName="city" (change)="onChange(bekleiForm)">
                     </mat-form-field>
                 </td>
                 <!-- <td><mat-form-field class="example-full-width">
@@ -55,7 +57,7 @@
                   </mat-form-field></td> -->
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput #postalCode maxlength="5" placeholder="PLZ" (change)="onChange()"
+                        <input matInput #postalCode maxlength="5" placeholder="PLZ" (change)="onChange(bekleiForm)"
                             formControlName="postCode">
                         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                     </mat-form-field>
@@ -208,7 +210,7 @@
 </div>
 
 <div class="divContainer1" *ngIf="router.url == '/form/3'">
-    <form class="example-form">
+    <form class="example-form" [formGroup]="bewerbForm">
         <mat-panel-title class="mainheader">
             Bewerbungsformular
         </mat-panel-title>
@@ -218,30 +220,12 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Vorname">
+                            <input matInput placeholder="Vorname" formControlName="firstName">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Nachnahme">
-                        </mat-form-field>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="example-full-width" cellspacing="0">
-                <tr>
-                    <td>
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Straße">
-                        </mat-form-field>
-                    </td>
-                    <!-- <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="State">
-                    </mat-form-field></td> -->
-                    <td>
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Hausnummer" value="">
+                            <input matInput placeholder="Nachnahme" formControlName="lastName">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -251,15 +235,29 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Ort">
+                            <input matInput placeholder="Straße" formControlName="street" >
                         </mat-form-field>
                     </td>
-                    <!-- <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="State">
-              </mat-form-field></td> -->
+                  
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput #postalCode maxlength="5" placeholder="PLZ" value="">
+                            <input matInput placeholder="Hausnummer" formControlName= "houseNr">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Ort" formControlName="ort">
+                        </mat-form-field>
+                    </td>
+              
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput #postalCode maxlength="5" placeholder="PLZ" formControlName="plz">
                             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                         </mat-form-field>
                     </td>
@@ -269,15 +267,13 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Funk">
+                            <input matInput placeholder="Funk" formControlName="telefon">
                         </mat-form-field>
                     </td>
-                    <!-- <td><mat-form-field class="example-full-width">
-                      <input matInput placeholder="State">
-                    </mat-form-field></td> -->
+                  
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Email" value="">
+                            <input matInput placeholder="Email" formControlName="email">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -289,17 +285,17 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Studium">
+                            <input matInput placeholder="Studium" formControlName= "Studium">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput type="number" min="1" placeholder="Semester">
+                            <input matInput type="number" min="1" placeholder="Semester" formControlName="Semester">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Abschlussjahr">
+                            <input matInput placeholder="Abschlussjahr" formControlName="Abschlussjahr"> 
                         </mat-form-field>
                     </td>
                 </tr>
@@ -307,8 +303,8 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Führerschein:</label>
 
-                <mat-radio-group class="example-radio-group">
-                    <mat-radio-button class="example-radio-button" value="1">PKW</mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="führerSchein">
+                    <mat-radio-button class="example-radio-button" value="1"  >PKW</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> LKW/Bus </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Motorrad </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="4"> Kein Führerschein </mat-radio-button>
@@ -317,9 +313,9 @@
 
             </div>
             <div class="radioContainer">
-                <label id="example-radio-group-label">Eigener PKW:</label>
+                <label id="example-radio-group-label" >Eigener PKW: </label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="pkw">
                     <mat-radio-button class="example-radio-button" value="1">Ja</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> Nein </mat-radio-button>
 
@@ -328,9 +324,9 @@
 
             </div>
             <div class="radioContainer">
-                <label id="example-radio-group-label">Gesundheitszeugnis:</label>
+                <label id="example-radio-group-label" >Gesundheitszeugnis:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="gesundheitszeugnis">
                     <mat-radio-button class="example-radio-button" value="1">Ja</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> Nein </mat-radio-button>
 
@@ -342,7 +338,7 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Englisch:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="englisch">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
@@ -351,7 +347,7 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Französich:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="franz">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
@@ -363,7 +359,7 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Spanisch:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="spanisch">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
@@ -374,7 +370,7 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Türkisch:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="tuerkisch">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
@@ -385,7 +381,7 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Persisch:</label>
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="persisch">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
@@ -394,7 +390,7 @@
                 </mat-radio-group>
             </div>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Sonstiges*">
+                <input matInput placeholder="Sonstiges*" formControlName="sonstiges">
                 <mat-hint align="end">*Mehrfachnennung möglich</mat-hint>
             </mat-form-field>
         </div>
@@ -402,7 +398,7 @@
             <div class="radioContainer">
                 <!-- <label id="example-radio-group-label"> 	Arbeiten Sie regelmäßig für andere Agenturen ? </label> -->
 
-                <mat-radio-group class="example-radio-group">
+                <mat-radio-group class="example-radio-group" formControlName="agenturen">
                     <mat-radio-button class="example-radio-button" value="1">ja</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> nein </mat-radio-button>
 
@@ -418,18 +414,18 @@
                 </td>
                 <td>
                 <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                    <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Veranstaltung" formControlName="promotion">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="agenturundstadt">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="monate">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -437,7 +433,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="jahr">
 
                     </mat-form-field>
                 </td>
@@ -657,13 +653,13 @@
 
         </table>
         <h4>Teamleitungs-/Chefhostessen- etc. erfahrung und/oder besondere Fähigkeiten </h4>
-        <mat-form-field class="example-full-width">
-            <textarea matInput></textarea>
+        <mat-form-field class="example-full-width" >
+            <textarea matInput formControlName="teamleitung"></textarea>
 
         </mat-form-field>
         <h4>Wie haben Sie von unserem Unternehmen erfahren ? * </h4>
         <mat-form-field class="example-full-width">
-            <textarea matInput></textarea>
+            <textarea matInput formControlName="wieerfahren"></textarea>
 
         </mat-form-field>
         <h4>Sonstige Angaben</h4>
@@ -671,18 +667,18 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Körpergröße">
+                        <input matInput  formControlName="sonstigeangaben" type="number" min="1" placeholder="Körpergröße">
 
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Konfektionsgröße">
+                        <input matInput type="number" min="1" formControlName="konfektion" placeholder="Konfektionsgröße">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Schuhgröße">
+                        <input matInput placeholder="Schuhgröße" formControlName="schuhgröße">
                     </mat-form-field>
                 </td>
             </tr>
@@ -693,7 +689,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Lohnsteuerklasse</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="lohnsteuer">
                             <mat-option *ngFor="let s of selectNum" [value]="s.value">
                                 {{s.viewValue}}
                             </mat-option>
@@ -702,7 +698,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Gewerbescheinnummer">
+                        <input matInput placeholder="Gewerbescheinnummer" formControlName="gewerbenummer">
 
                     </mat-form-field>
                 </td>
@@ -713,34 +709,251 @@
     </form>
 
 
-    <button  (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
+<button (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
 
 </div>
 
 
 <div class="divContainer1" *ngIf="router.url == '/form/1'">
     <form class="example-form" [formGroup]="personForm">
-            <mat-panel-title class="mainheader">
-                Personalanfrage
-            </mat-panel-title >
-            
-            
-            <table class="example-full-width" cellspacing="0">
-                    <tr>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Vorname" (change)="onChange()" formControlName="firstName">
-                            </mat-form-field>
-                        </td>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Nachnahme" (change)="onChange()" formControlName="lastName">
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    </table>
-        </form>
-    
+        <mat-panel-title class="mainheader">
+            Personalanfrage
+        </mat-panel-title>
+
+
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Vorname" (change)="onChange(personForm)"
+                            formControlName="firstName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Nachnahme" (change)="onChange(personForm)"
+                            formControlName="lastName">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="FirmenName" (change)="onChange(personForm)"
+                            formControlName="firmName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Telefon" type="number" (change)="onChange(personForm)" formControlName="telefon">
+                    </mat-form-field>
+
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" (change)="onChange(personForm)" formControlName="email">
+                    </mat-form-field>
+
+                </td>
+            </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Name der Veranstaltung" (change)="onChange(personForm)"
+                            formControlName="veranstName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ort der Veranstaltung" (change)="onChange(personForm)" formControlName="veranstOrt">
+                    </mat-form-field>
+
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" placeholder="Von " formControlName="vonDatum">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker1" placeholder="Bis" formControlName="bisDatum">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </td>
+
+            </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Host oder Hosstess?</mat-label>
+                        <mat-select formControlName="host" >
+                            <mat-option *ngFor="let s of selectHost" [value]="s.value" >
+                                {{s.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Zusätzliche Anmerkungen" (change)="onChange(personForm)"
+                            formControlName="besonderes"></textarea>
+                    </mat-form-field>
+
+                </td>
+
+            </tr>
+        </table>
+
+
+        <section class="example-section">
+            <mat-checkbox *ngIf="isFilled" [checked]="showDetails" (change)="onChecked(showDetails)"> Wünschen Sie
+                Bekleidung für ihr Personal? </mat-checkbox>
+        </section>
+        <!-- *ngIf="isFilled" -->
+        <div *ngIf="showDetails" >
+
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel (opened)="setStep(0)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Etuikleid
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Größen: 34 - 44
+
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <input matInput placeholder="gewünschte Größe" formControlName="kleidsize">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kleidamount">
+                    </mat-form-field>
+                    <div class="clothImages">
+                        <img matPrefix src="./assets/kleid.jpg" height="400px">
+                    </div>
+
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                        <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                    </mat-action-row>
+
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Hosenanzug
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Größen: XS - XL
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-form-field>
+                        <input matInput placeholder="gewünschte Größe" formControlName="hosesize">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" min="1" placeholder="Anzahl" formControlName="hoseamount">
+                    </mat-form-field>
+
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                        <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Kostüm
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Größen: XS - XL
+
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <input matInput placeholder="gewünschte Größe" formControlName="kostumsize">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kostumamount">
+                    </mat-form-field>
+
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                        <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Bluse
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Größen: XS - XL
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-form-field>
+                        <input matInput placeholder="gewünschte Größe" formControlName="blusesize">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluseamount">
+                    </mat-form-field>
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                        <button mat-button color="primary" (click)="nextStep()">Weiter</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Bluse 1
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Größen: XS - XL
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-form-field>
+                        <input matInput (change)="onChange" placeholder="gewünschte Größe" formControlName="bluse1size">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluse1amount">
+                    </mat-form-field>
+
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Zurück</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+
+        </div>
+
+    </form>
+
     <button (click)="onSubmit()" mat-flat-button color="primary">Abschicken</button>
 
 </div>
@@ -749,4 +962,4 @@
 
 
 
-        <router-outlet></router-outlet>
+<router-outlet></router-outlet>

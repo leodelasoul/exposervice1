@@ -22,7 +22,7 @@ import { MainContentComponent} from './main/main.component';
 import {InfofooterComponent} from './info-footer/info-footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingSectionComponent } from './landing-section/landing-section.component';
-import { FormsComponent } from './forms/forms.component';
+import { FormsComponent, DialogAfterSubmit  } from './forms/forms.component';
 import {AngularMaterial} from './material-module'
 import {DataSecComponent} from './data-sec/data-sec.component'
 import { MessageService } from './services/message.service';
@@ -51,9 +51,12 @@ const appRoutes: Routes = [
     LandingSectionComponent,
     FormsComponent,
     DataSecComponent,
+    DialogAfterSubmit
     
     
   ],
+
+  entryComponents : [DialogAfterSubmit],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,

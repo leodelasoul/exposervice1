@@ -34,17 +34,15 @@ app.post("/sendmail", cors(), function (request, response) {
   var mailData = ""
   var data = request.body;
   var header = data[0]
-  console.log(data[0]);
+  console.log(data);
   for (var key in data[1]) {
-    if (data[1][key] !== null || data[1][key] !== "") {
+    // console.log(data[1][key].type)
       mailData = mailData + "\n" + key + " : " + data[1][key];
 
-    }
-    else
-      return;
+    
     }
 
-  // console.log(mailData);
+  console.log(mailData);
   mailOptions = {
     from: `"<Sender’s name>", "<Sender’s email>"`,
     to: `<${user.email}>`,
