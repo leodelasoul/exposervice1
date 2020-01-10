@@ -26,7 +26,24 @@
     padding-left: 52px;
     margin: auto;
 }
+  @media (max-width: 1373px){
+    .navbar-img{
+      display: none;
+    }
+    .navbar-menu{
+      display: flex;
+      flex-wrap: wrap;
   
+    }
+    .navbar-menu a{
+    
+    
+      text-align: right;
+      font-size: 1.2em;
+      margin: auto;
+  }
+
+  }
 
   .navbar-img{
     flex-direction: row;

@@ -193,3 +193,46 @@ p .landingcontent{
   right: 4%;
 
 }
+
+@media(max-width:450px){
+  div.landingcontent > img {
+    height: 350px;
+    width: 350px;
+  } 
+  
+  div.wrapper2{
+    position: absolute;
+    /* right: 13%; */
+    top: 0;
+    left: 8%;
+
+  }
+  div.wrapper2 > img{
+    width: 350px;
+
+  }
+
+  div.landingcontent{
+    top: 204%;
+    left: 26%;
+
+
+  }
+  .landingnav{
+    position: absolute;
+    visibility: show;
+  }
+
+  #buttonContainerId{
+    top: 2%;
+    border:solid;
+    height: 350px;
+    width: 350px;
+    position: absolute;
+
+    left:unset;
+
+  }
+}
+
+
