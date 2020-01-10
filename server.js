@@ -3,19 +3,21 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
+
 // create a new Express application instance 
 const app = express();
 
 //configure the Express middleware to accept CORS requests and parse request body into JSON
-app.use(cors());
+app.use(express.static(__dirname + '/dist/expo-renew'),cors());
 app.use(bodyParser.json());
 
-//start application server on port 3000
-app.listen(3000, () => {
-  console.log("The server started on port 3000");
+//start application server on port 8080
+app.listen(process.env.PORT || 8080, () => {
+  console.log("The server started on port 8080");
 });
-
-
+// router.get('*', function(req, res){
+//   res.sendFile('index.html', { root: __dirname + '/dist/expo-renew' });
+// });
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
