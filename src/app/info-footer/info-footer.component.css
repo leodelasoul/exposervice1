@@ -43,7 +43,7 @@ span{
     bottom: 6%;
     width: 96.5%;
 }}
-@media(max-width:1300px) and  (max-height:800px){
+@media(max-width:1400px) and  (max-height:800px){
     .info-footer{
     padding: 25px;
     /* margin-top: 2%; */
