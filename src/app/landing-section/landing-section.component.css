@@ -152,14 +152,7 @@ p .landingcontent{
   position: relative;
   font-size: 24px;
 }
-.wrapper2{
-  position: fixed;
-  right: 13%;
-  top: 6%;
 
-
-
-}
 .circle {
   height: 500px;
     width: 500px;
@@ -211,10 +204,7 @@ p .landingcontent{
     width: 350px;
 
   }
-  div.round-button-container > div:hover {
-    background-color: rgba(243, 235, 235, 0.8);
-
-  }
+ 
 
   div.landingcontent{
     top: 354%;
@@ -291,10 +281,7 @@ div.landingcontent > div > div:nth-child(4) > p{
   bottom: 78px;
   padding-left: 24px;
 }
-div.round-button-container > div:hover, div.round-button-container > div:active{
-  background-color: rgba(243, 235, 235, 0.8);
 
-}
 
 #span1, #span2 , #span3, #span4 ,#span5 {
   display: inherit;
@@ -404,8 +391,9 @@ content: '';
   
   }
   .wrapper2{
-    top: 1%;
-
+    right: -53%;
+    position: absolute;
+    top: 10%;
   }
   
 .circle::before {
@@ -450,12 +438,23 @@ content: '';
 }
 
 div.round-button-container{
-  border-radius: 50%;
+  /* border-radius: 50%;
     
     position: fixed;
     overflow: hidden;
     z-index: 2;
     top: 152px;
+    height: 548px;
+    width: 534px;
+    font-size: 1.2em;
+    transform: translateX(61px); */
+
+
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+    top: 25px;
     height: 548px;
     width: 534px;
     font-size: 1.2em;
@@ -569,6 +568,21 @@ a{
   
   }
 
+@media(min-height:620px){
+  div.round-button-container{
+    position: absolute;
+    border-radius: 50%;
+    /* position: fixed; */
+    /* overflow: hidden; */
+    z-index: 2;
+    top: 25px;
+    height: 548px;
+    width: 534px;
+    font-size: 1.2em;
+    transform: translateX(61px);
+  }
+}
+ 
 }
 
 
