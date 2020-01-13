@@ -13,7 +13,7 @@ export class MessageService {
 
   sendMailSumbit(data){
     let body = JSON.stringify(data);
-    console.log(body)
-    return this.http.post('http://localhost:3000/sendmail', body, httpOptions).subscribe();
+    console.log(body);
+    return this.http.post('http://localhost:8080/sendmail', body, httpOptions).subscribe();
   }
 }

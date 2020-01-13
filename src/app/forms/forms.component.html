@@ -11,13 +11,13 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Vorname" (change)="onChange(bekleiForm)"
-                            formControlName="firstName">
+                            formControlName="Vorname">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nachnahme" (change)="onChange(bekleiForm)"
-                            formControlName="lastName">
+                        <input matInput placeholder="Nachname" (change)="onChange(bekleiForm)"
+                            formControlName="Nachname">
                     </mat-form-field>
                 </td>
             </tr>
@@ -31,7 +31,7 @@
                     <mat-form-field class="example-full-width">
                         <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
                         <textarea matInput placeholder="Adresse" (change)="onChange(bekleiForm)"
-                            formControlName="address"></textarea>
+                            formControlName="Adresse"></textarea>
                     </mat-form-field>
 
                 </td>
@@ -39,7 +39,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <!-- <texra matInput placeholder="Adresse" formControlName="city"> -->
-                        <input matInput placeholder="Email" (change)="onChange(bekleiForm)" formControlName="email">
+                        <input matInput placeholder="Email" (change)="onChange(bekleiForm)" formControlName="Email">
                     </mat-form-field>
                 </td>
             </tr>
@@ -49,7 +49,7 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ort" formControlName="city" (change)="onChange(bekleiForm)">
+                        <input matInput placeholder="Ort" formControlName="Ort" (change)="onChange(bekleiForm)">
                     </mat-form-field>
                 </td>
                 <!-- <td><mat-form-field class="example-full-width">
@@ -58,7 +58,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <input matInput #postalCode maxlength="5" placeholder="PLZ" (change)="onChange(bekleiForm)"
-                            formControlName="postCode">
+                            formControlName="PLZ">
                         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                     </mat-form-field>
                 </td>
@@ -195,9 +195,85 @@
         </mat-accordion>
 
         <section class="example-section" *ngIf="isFilled">
-            <mat-checkbox>Wünschen Sie Personal für ihre Veranstaltung? </mat-checkbox>
+            <mat-checkbox *ngIf="isFilled" [checked]="showDetails"  (change)="onChecked(showDetails)">Wünschen Sie Personal für ihre Veranstaltung? </mat-checkbox>
         </section>
+        <div *ngIf="showDetails" >  
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Name der Veranstaltung" (change)="onChange(personForm)"
+                                formControlName="Name_der_Veranstaltung">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Ort der Veranstaltung" (change)="onChange(personForm)" formControlName="Ort_der_Veranstaltung">
+                        </mat-form-field>
+    
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput [matDatepicker]="picker" placeholder="Von " formControlName="von_Datum">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput [matDatepicker]="picker1" placeholder="Bis" formControlName="bis_Datum">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+    
+                </tr>
+            </table>
 
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Anzahl an Hosts?" (change)="onChange(bekleiForm)"
+                                formControlName="host"  type="number">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Anzahl an Hostessen?" (change)="onChange(bekleiForm)"
+                                formControlName="hostess"  type="number">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput  #currentChars placeholder="Zeiten Planung" (change)="onChange(personForm)"
+                                formControlName="Zeiten_Planung"></textarea>
+                                <mat-hint align="end">Angaben mit Datum und Stundenanzahl hinterlegen, {{currentChars.value.length}} / 20</mat-hint>
+                        </mat-form-field>
+    
+                    </td>
+    
+    
+                </tr>
+
+            </table>
+
+
+            <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <textarea matInput placeholder="Zusätzliche Anmerkungen" (change)="onChange(personForm)"
+                                    formControlName="Zusätzliche_Anmerkungen"></textarea>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                   
+            </table>
+
+           
+
+        </div>
 
 
     </form>
@@ -220,12 +296,12 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Vorname" formControlName="firstName">
+                            <input matInput placeholder="Vorname" formControlName="Vorname">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Nachnahme" formControlName="lastName">
+                            <input matInput placeholder="Nachname" formControlName="Nachname">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -235,13 +311,13 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Straße" formControlName="street" >
+                            <input matInput placeholder="Straße" formControlName="Strasse" >
                         </mat-form-field>
                     </td>
                   
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Hausnummer" formControlName= "houseNr">
+                            <input matInput placeholder="Hausnummer" formControlName= "Hausnummer">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -251,13 +327,13 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Ort" formControlName="ort">
+                            <input matInput placeholder="Ort" formControlName="Ort">
                         </mat-form-field>
                     </td>
               
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput #postalCode maxlength="5" placeholder="PLZ" formControlName="plz">
+                            <input matInput #postalCode maxlength="5" placeholder="PLZ" formControlName="PLZ">
                             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                         </mat-form-field>
                     </td>
@@ -267,13 +343,13 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Funk" formControlName="telefon">
+                            <input matInput placeholder="Telefon" formControlName="Telefon">
                         </mat-form-field>
                     </td>
                   
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Email" formControlName="email">
+                            <input matInput placeholder="Email" formControlName="Email">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -303,11 +379,12 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Führerschein:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="führerSchein">
-                    <mat-radio-button class="example-radio-button" value="1"  >PKW</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> LKW/Bus </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Motorrad </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="4"> Kein Führerschein </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Fuehrerschein" >
+                    <!-- (click)="multiple(button)" -->
+                    <mat-radio-button class="example-radio-button" value="Pkw" >PKW</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="LKW"> LKW/Bus </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Motorad"> Motorrad </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="kein Führerschein"> Kein Führerschein </mat-radio-button>
 
                 </mat-radio-group>
 
@@ -316,8 +393,8 @@
                 <label id="example-radio-group-label" >Eigener PKW: </label>
 
                 <mat-radio-group class="example-radio-group" formControlName="pkw">
-                    <mat-radio-button class="example-radio-button" value="1">Ja</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> Nein </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Ja">Ja</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Nein"> Nein </mat-radio-button>
 
 
                 </mat-radio-group>
@@ -326,9 +403,9 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label" >Gesundheitszeugnis:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="gesundheitszeugnis">
-                    <mat-radio-button class="example-radio-button" value="1">Ja</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> Nein </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Gesundheitszeugnis">
+                    <mat-radio-button class="example-radio-button" value="Ja">Ja</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Nein"> Nein </mat-radio-button>
 
 
 
@@ -338,19 +415,19 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Englisch:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="englisch">
-                    <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Englisch">
+                    <mat-radio-button class="example-radio-button" value="sehr gut">sehr gut</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="schlecht"> schlecht </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Muttersprache"> Muttersprache </mat-radio-button>
                 </mat-radio-group>
             </div>
             <div class="radioContainer">
                 <label id="example-radio-group-label">Französich:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="franz">
-                    <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Franzoesich">
+                    <mat-radio-button class="example-radio-button" value="sehr gut">sehr gut</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="schlecht"> schlecht </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Muttersprache"> Muttersprache </mat-radio-button>
 
 
 
@@ -359,10 +436,10 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Spanisch:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="spanisch">
-                    <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Spanisch">
+                    <mat-radio-button class="example-radio-button" value="sehr gut">sehr gut</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="schlecht"> schlecht </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Muttersprache"> Muttersprache </mat-radio-button>
 
 
                 </mat-radio-group>
@@ -370,10 +447,10 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Türkisch:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="tuerkisch">
+                <mat-radio-group class="example-radio-group" formControlName="Tuerkisch">
                     <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Muttersprache"> Muttersprache </mat-radio-button>
 
 
                 </mat-radio-group>
@@ -381,16 +458,16 @@
             <div class="radioContainer">
                 <label id="example-radio-group-label">Persisch:</label>
 
-                <mat-radio-group class="example-radio-group" formControlName="persisch">
-                    <mat-radio-button class="example-radio-button" value="1">sehr gut</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> schlecht </mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="3"> Muttersprache </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Persisch">
+                    <mat-radio-button class="example-radio-button" value="sehr gut">sehr gut</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="sehr gut"> schlecht </mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Muttersprache"> Muttersprache </mat-radio-button>
 
 
                 </mat-radio-group>
             </div>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Sonstiges*" formControlName="sonstiges">
+                <input matInput placeholder="Sonstiges*" formControlName="Sonstiges">
                 <mat-hint align="end">*Mehrfachnennung möglich</mat-hint>
             </mat-form-field>
         </div>
@@ -398,9 +475,9 @@
             <div class="radioContainer">
                 <!-- <label id="example-radio-group-label"> 	Arbeiten Sie regelmäßig für andere Agenturen ? </label> -->
 
-                <mat-radio-group class="example-radio-group" formControlName="agenturen">
-                    <mat-radio-button class="example-radio-button" value="1">ja</mat-radio-button>
-                    <mat-radio-button class="example-radio-button" value="2"> nein </mat-radio-button>
+                <mat-radio-group class="example-radio-group" formControlName="Andere_Agenturen">
+                    <mat-radio-button class="example-radio-button" value="ja">ja</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="nein">nein</mat-radio-button>
 
 
                 </mat-radio-group>
@@ -415,17 +492,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width" >
-                        <input matInput placeholder="Veranstaltung" formControlName="promotion">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt" formControlName="agenturundstadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate" formControlName="monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -433,7 +510,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr">
 
                     </mat-form-field>
                 </td>
@@ -445,17 +522,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung1">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt1">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate1">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -463,7 +540,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr1">
 
                     </mat-form-field>
                 </td>
@@ -475,17 +552,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung2">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt2">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate2">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -493,7 +570,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr2">
 
                     </mat-form-field>
                 </td>
@@ -505,17 +582,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung3">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt3">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate3">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -523,7 +600,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr3">
 
                     </mat-form-field>
                 </td>
@@ -535,17 +612,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung4">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt4">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate4">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -553,7 +630,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr4">
 
                     </mat-form-field>
                 </td>
@@ -566,17 +643,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung5">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt5">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate5">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -584,7 +661,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr5">
 
                     </mat-form-field>
                 </td>
@@ -596,17 +673,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung6">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt6">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate6">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -614,7 +691,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr6">
 
                     </mat-form-field>
                 </td>
@@ -627,17 +704,17 @@
                 <td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Veranstaltung">
+                        <input matInput placeholder="Veranstaltung" formControlName="Veranstaltung7">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Agentur+Stadt">
+                        <input matInput placeholder="Agentur+Stadt" formControlName="Agentur_Stadt7">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Monate">
+                        <input matInput type="number" min="1" placeholder="Monate" formControlName="Monate7">
                         <mat-hint align="end">Dauer</mat-hint>
 
 
@@ -645,7 +722,7 @@
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" placeholder="Jahr">
+                        <input matInput type="number" min="1" placeholder="Jahr" formControlName="Jahr7">
 
                     </mat-form-field>
                 </td>
@@ -719,70 +796,53 @@
         <mat-panel-title class="mainheader">
             Personalanfrage
         </mat-panel-title>
-
-
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Vorname" (change)="onChange(personForm)"
-                            formControlName="firstName">
+                        <input matInput placeholder="Firmen Name" (change)="onChange(personForm)"
+                            formControlName="Firmen_Name">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nachnahme" (change)="onChange(personForm)"
-                            formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="FirmenName" (change)="onChange(personForm)"
-                            formControlName="firmName">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Telefon" type="number" (change)="onChange(personForm)" formControlName="telefon">
+                        <input matInput placeholder="Telefon" type="number" (change)="onChange(personForm)" formControlName="Telefon">
                     </mat-form-field>
 
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Email" (change)="onChange(personForm)" formControlName="email">
+                        <input matInput placeholder="Email" (change)="onChange(personForm)" formControlName="Email">
                     </mat-form-field>
 
                 </td>
             </tr>
         </table>
+         
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Name der Veranstaltung" (change)="onChange(personForm)"
-                            formControlName="veranstName">
+                            formControlName="Name_der_Veranstaltung">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ort der Veranstaltung" (change)="onChange(personForm)" formControlName="veranstOrt">
+                        <input matInput placeholder="Ort der Veranstaltung" (change)="onChange(personForm)" formControlName="Ort_der_Veranstaltung">
                     </mat-form-field>
 
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker" placeholder="Von " formControlName="vonDatum">
+                        <input matInput [matDatepicker]="picker" placeholder="Von " formControlName="von_Datum">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker1" placeholder="Bis" formControlName="bisDatum">
+                        <input matInput [matDatepicker]="picker1" placeholder="Bis" formControlName="bis_Datum">
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
@@ -790,29 +850,64 @@
 
             </tr>
         </table>
+
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <mat-label>Host oder Hosstess?</mat-label>
-                        <mat-select formControlName="host" >
-                            <mat-option *ngFor="let s of selectHost" [value]="s.value" >
-                                {{s.viewValue}}
-                            </mat-option>
-                        </mat-select>
+                        <input matInput placeholder="Vorname" (change)="onChange(personForm)"
+                            formControlName="Vorname">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Zusätzliche Anmerkungen" (change)="onChange(personForm)"
-                            formControlName="besonderes"></textarea>
+                        <input matInput placeholder="Nachname" (change)="onChange(personForm)"
+                            formControlName="Nachname">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        
+
+       
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Anzahl an Hosts?" (change)="onChange(bekleiForm)"
+                            formControlName="host"  type="number">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Anzahl an Hostessen?" (change)="onChange(bekleiForm)"
+                            formControlName="hostess"  type="number">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput  #currentChars placeholder="Zeiten Planung" (change)="onChange(personForm)"
+                            formControlName="Zeiten_Planung"></textarea>
+                            <mat-hint align="end">Angaben mit Datum und Stundenanzahl hinterlegen, {{currentChars.value.length}} / 20</mat-hint>
                     </mat-form-field>
 
                 </td>
 
+
             </tr>
         </table>
+        <table class="example-full-width" cellspacing="0">
 
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Zusätzliche Anmerkungen" (change)="onChange(personForm)"
+                            formControlName="Zusätzliche_Anmerkungen"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+
+        </table>
 
         <section class="example-section">
             <mat-checkbox *ngIf="isFilled" [checked]="showDetails" (change)="onChecked(showDetails)"> Wünschen Sie

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
@@ -26,6 +26,7 @@ export class FormsComponent implements OnInit {
   isChecked: boolean;
   items;
   checkoutForm;
+  currentCheckedValue = null;
 
   selectHost = [
     { value: 1, viewValue: "Host" },
@@ -43,12 +44,12 @@ export class FormsComponent implements OnInit {
     { value: 6, viewValue: 6 },
   ];
   bekleiForm = new FormGroup({
-    firstName: new FormControl(null, Validators.required),
-    lastName: new FormControl(null, Validators.required),
-    address: new FormControl(null, Validators.required),
-    city: new FormControl(null, Validators.required),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    postCode: new FormControl(null, Validators.maxLength(5)),
+    Vorname: new FormControl(null, Validators.required),
+    Nachname: new FormControl(null, Validators.required),
+    Adresse: new FormControl(null, Validators.required),
+    Ort: new FormControl(null, Validators.required),
+    Email: new FormControl(null, [Validators.required, Validators.email]),
+    PLZ: new FormControl(null, Validators.maxLength(5)),
     kleidsize: new FormControl(null),
     kleidamount: new FormControl(null),
     blusesize: new FormControl(null),
@@ -58,25 +59,36 @@ export class FormsComponent implements OnInit {
     bluse1size: new FormControl(null),
     bluse1amount: new FormControl(null),
     kostumsize: new FormControl(null),
-    kostumamount: new FormControl(null)
+    kostumamount: new FormControl(null),
+
+
+    Name_der_Veranstaltung: new FormControl(null, Validators.required),
+    von_Datum: new FormControl(null, Validators.required),
+    bis_Datum: new FormControl(null, Validators.required),
+    Ort_der_Veranstaltung: new FormControl(null, Validators.required),
+    Zusätzliche_Anmerkungen: new FormControl(null),
+    host: new FormControl(null, Validators.required),
+    hostess : new FormControl(null, Validators.required),
+    Zeiten_Planung : new FormControl(null, [Validators.required, Validators.minLength(20)]),
 
 
   });
 
   personForm = new FormGroup({
-    firstName: new FormControl(null, Validators.required),
-    lastName: new FormControl(null, Validators.required),
-    firmName: new FormControl(null),
-    telefon: new FormControl(null, Validators.required),
-    email: new FormControl(null, [Validators.required, Validators.email]),
+    Vorname: new FormControl(null, Validators.required),
+    Nachname: new FormControl(null, Validators.required),
+    Firmen_Name: new FormControl(null),
+    Telefon: new FormControl(null, Validators.required),
+    Email: new FormControl(null, [Validators.required, Validators.email]),
 
-    veranstName: new FormControl(null, Validators.required),
-    vonDatum: new FormControl(null, Validators.required),
-    bisDatum: new FormControl(null, Validators.required),
-    veranstOrt: new FormControl(null, Validators.required),
-    besonderes: new FormControl(null),
+    Name_der_Veranstaltung: new FormControl(null, Validators.required),
+    von_Datum: new FormControl(null, Validators.required),
+    bis_Datum: new FormControl(null, Validators.required),
+    Ort_der_Veranstaltung: new FormControl(null, Validators.required),
+    Zusätzliche_Anmerkungen: new FormControl(null),
     host: new FormControl(null, Validators.required),
-
+    hostess : new FormControl(null, Validators.required),
+    Zeiten_Planung : new FormControl(null, [Validators.required, Validators.minLength(20)]),
 
     kleidsize: new FormControl(null),
     kleidamount: new FormControl(null),
@@ -93,32 +105,67 @@ export class FormsComponent implements OnInit {
   })
 
   bewerbForm = new FormGroup({
-    firstName: new FormControl(null, Validators.required),
-    lastName: new FormControl(null),
-    telefon: new FormControl(null),
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    houseNr: new FormControl(null),
-    street: new FormControl(null),
-    ort: new FormControl(null),
-    plz: new FormControl(null),
+    Vorname: new FormControl(null, Validators.required),
+    Nachname: new FormControl(null),
+    Telefon: new FormControl(null),
+    Email: new FormControl(null, [Validators.required, Validators.email]),
+    Hausnummer: new FormControl(null),
+    Strasse: new FormControl(null),
+    Ort: new FormControl(null),
+    PLZ: new FormControl(null),
     Studium: new FormControl(null),
     Semester: new FormControl(null),
     Abschlussjahr: new FormControl(null),
-    führerSchein: new FormControl(null),
+    Fuehrerschein: new FormControl(null),
     pkw: new FormControl(null),
-    gesundheitszeugnis: new FormControl(null),
-    englisch: new FormControl(null),
-    franz: new FormControl(null),
-    spanisch: new FormControl(null),
-    tuerkisch: new FormControl(null),
-    persisch: new FormControl(null),
-    sonstiges: new FormControl(null),
-    agenturen: new FormControl(null),
+    Gesundheitszeugnis: new FormControl(null),
+    Englisch: new FormControl(null),
+    Franzoesich: new FormControl(null),
+    Spanisch: new FormControl(null),
+    Tuerkisch: new FormControl(null),
+    Persisch: new FormControl(null),
+    Sonstiges: new FormControl(null),
+    Andere_Agenturen: new FormControl(null),
 
-    promotion: new FormControl(null),
-    agenturundstadt: new FormControl(null),
-    monate: new FormControl(null),
-    jahr: new FormControl(null),
+    Veranstaltung:  new FormControl(null),
+    Agentur_Stadt: new FormControl(null),
+    Monate: new FormControl(null),
+    Jahr: new FormControl(null),
+
+    Veranstaltung1:  new FormControl(null),
+    Agentur_Stadt1: new FormControl(null),
+    Monate1: new FormControl(null),
+    Jahr1: new FormControl(null),
+
+    Veranstaltung2:  new FormControl(null),
+    Agentur_Stadt2: new FormControl(null),
+    Monate2: new FormControl(null),
+    Jahr2: new FormControl(null),
+
+    Veranstaltung3:  new FormControl(null),
+    Agentur_Stadt3: new FormControl(null),
+    Monate3: new FormControl(null),
+    Jahr3: new FormControl(null),
+
+    Veranstaltung4:  new FormControl(null),
+    Agentur_Stadt4: new FormControl(null),
+    Monate4: new FormControl(null),
+    Jahr4: new FormControl(null),
+
+    Veranstaltung5:  new FormControl(null),
+    Agentur_Stadt5: new FormControl(null),
+    Monate5: new FormControl(null),
+    Jahr5: new FormControl(null),
+
+    Veranstaltung6:  new FormControl(null),
+    Agentur_Stadt6: new FormControl(null),
+    Monate6: new FormControl(null),
+    Jahr6: new FormControl(null),
+
+    Veranstaltung7:  new FormControl(null),
+    Agentur_Stadt7: new FormControl(null),
+    Monate7: new FormControl(null),
+    Jahr7: new FormControl(null),
 
     teamleitung: new FormControl(null),
     wieerfahren: new FormControl(null),
@@ -137,6 +184,7 @@ export class FormsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
+    private renderer: Renderer2,
     private _messageService: MessageService,
     @Inject(DOCUMENT) private document: Document,
     public dialog: MatDialog) {
@@ -228,7 +276,6 @@ export class FormsComponent implements OnInit {
         this._messageService.sendMailSumbit(data)
         this.isFilled = false;
         this.bekleiForm.reset();
-        this.isFilled = false;
         this.showDetails = false;
         this.openDialog();
       }
@@ -251,6 +298,20 @@ export class FormsComponent implements OnInit {
 
   }
 
+  multiple(event){
+    setTimeout(() => {
+      if (this.currentCheckedValue && this.currentCheckedValue === event.value) {
+        event.checked = false;
+        this.renderer.removeClass(event['_elementRef'].nativeElement, 'cdk-focused');
+        this.renderer.removeClass(event['_elementRef'].nativeElement, 'cdk-program-focused');
+        this.currentCheckedValue = null;
+      } else {
+        this.currentCheckedValue = event.value
+      }
+    })
+
+  }
+
   onChecked(event) {
 
     this.showDetails = true;
@@ -263,6 +324,7 @@ export class FormsComponent implements OnInit {
   // this.items = this.bekleidungsFormService.getItems();  
 
   ngOnInit() {
+    this.isFilled = false;
     this.showDetails = false;
     this.count = 0;
 

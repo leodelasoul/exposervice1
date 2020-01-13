@@ -18,6 +18,7 @@ export class LandingSectionComponent implements OnInit {
   texts = TEXTS;
   id: number;
   show : boolean;
+  show1 : boolean;
 
   constructor(
     private viewportScroller: ViewportScroller,
@@ -25,6 +26,7 @@ export class LandingSectionComponent implements OnInit {
     private router: Router) {
       this.id = 0;    
       this.show = false;  
+      this.show1 = false;  
   }
 
   ngOnInit() {
@@ -38,6 +40,10 @@ export class LandingSectionComponent implements OnInit {
       document.getElementById("buttonContainerId2").style.visibility = "visible";
 
       document.getElementById("buttonContainerId").style.visibility = "hidden";
+      
+      // document.getElementById("buttonContainerId2").style.display = "block";
+
+      // document.getElementById("buttonContainerId").style.display = "none";
 
     }
     
@@ -50,13 +56,16 @@ export class LandingSectionComponent implements OnInit {
   public onClick(elementId: number): void {
 
     this.id = elementId;
+    console.log(elementId)
 
     if (elementId == 0) {
       this.show = false;
+      console.log(this.show1)
+       
+     document.getElementById("buttonContainerId2").style.visibility = "hidden";
 
       document.getElementById("buttonContainerId").style.visibility = "visible";
 
-      document.getElementById("buttonContainerId2").style.visibility = "hidden";
     }
 
     else {

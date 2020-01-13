@@ -12,7 +12,11 @@ app.use(express.static(__dirname + '/dist/expo-renew'),cors());
 app.use(bodyParser.json());
 
 //start application server on port 8080
+<<<<<<< HEAD
 app.listen(process.env.PORT || 8080, () => {
+=======
+app.listen(8080, () => {
+>>>>>>> actualdeploy
   console.log("The server started on port 8080");
 });
 // router.get('*', function(req, res){
@@ -39,6 +43,33 @@ app.post("/sendmail", cors(), function (request, response) {
   console.log(data);
   for (var key in data[1]) {
     // console.log(data[1][key].type)
+    if(key == "Veranstaltung"){
+      mailData = mailData + "\n" + "-----------Promotion-------------"
+    }
+    else if(key == "Veranstaltung1"){
+      mailData = mailData + "\n" + "-----------Messe-------------"
+    }
+    else if(key == "Veranstaltung2"){
+      mailData = mailData + "\n" + "-----------Konferenz-------------"
+    }
+    else if(key == "Veranstaltung3"){
+      mailData = mailData + "\n" + "-----------Verkauf-------------"
+    }
+    else if(key == "Veranstaltung4"){
+      mailData = mailData + "\n" + "-----------Moderation-------------"
+    }
+    else if(key == "Veranstaltung5"){
+      mailData = mailData + "\n" + "-----------Gastronomie/Catering-------------"
+    }
+    else if(key == "Veranstaltung6"){
+      mailData = mailData + "\n" + "-----------Model/Laufsteg-------------"
+    }
+    else if(key == "Veranstaltung7"){
+      mailData = mailData + "\n" + "-----------Fahrerfahrung(7,5t LKW)-------------"
+    }
+    
+   
+   
       mailData = mailData + "\n" + key + " : " + data[1][key];
 
     
@@ -48,7 +79,7 @@ app.post("/sendmail", cors(), function (request, response) {
   mailOptions = {
     from: `"<Sender’s name>", "<Sender’s email>"`,
     to: `<${user.email}>`,
-    subject: `<${header}> von: ${data[1].firstName} `,
+    subject: `<${header}> von: ${data[1].Nachname} `,
     // html: `<${data}>`
     text: `Daten:  ${mailData}`
   }

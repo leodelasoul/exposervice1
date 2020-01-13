@@ -23,8 +23,9 @@
 
         <img src="assets/svg/shape27.svg" alt="expo Service " width="600" height="600">
         <div id= "circleContent" *ngIf="show">
+            <p> {{texts[id].header}}</p>
+
                 <div class= "circle">
-                        
                         <span> {{texts[id].content}}</span>
                 </div>
             
@@ -47,7 +48,7 @@
                 alt="expo Service "></span>
         <span id="span5"><a (click)="onClick(4)">Referenzen</a><img src="assets/button1.png" alt="expo Service "></span>
 
-    </div>
+    </div> 
 
 
 
