@@ -12,11 +12,7 @@ app.use(express.static(__dirname + '/dist/expo-renew'),cors());
 app.use(bodyParser.json());
 
 //start application server on port 8080
-<<<<<<< HEAD
 app.listen(process.env.PORT || 8080, () => {
-=======
-app.listen(8080, () => {
->>>>>>> actualdeploy
   console.log("The server started on port 8080");
 });
 // router.get('*', function(req, res){
