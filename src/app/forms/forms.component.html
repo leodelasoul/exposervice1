@@ -85,7 +85,7 @@
                     <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kleidamount">
                 </mat-form-field>
                 <div class="clothImages">
-                    <img matPrefix src="./assets/kleid.jpg" height="400px">
+                    <img matPrefix src="./assets/etuiklei.png" height="400px">
                 </div>
 
 
@@ -113,8 +113,10 @@
                 <mat-form-field>
                     <input matInput type="number" min="1" placeholder="Anzahl" formControlName="hoseamount">
                 </mat-form-field>
-
-
+<!-- 
+                <div class="clothImages">
+                    <img matPrefix src="./assets/kostum.png" height="400px">
+                </div> -->
                 <mat-action-row>
                     <button mat-button color="warn" (click)="prevStep()">Zurück</button>
                     <button mat-button color="primary" (click)="nextStep()">Weiter</button>
@@ -139,7 +141,9 @@
                 <mat-form-field>
                     <input matInput type="number" min="1" placeholder="Anzahl" formControlName="kostumamount">
                 </mat-form-field>
-
+                <div class="clothImages">
+                    <img matPrefix src="./assets/kostum.png" height="400px">
+                </div>
 
                 <mat-action-row>
                     <button mat-button color="warn" (click)="prevStep()">Zurück</button>
@@ -248,7 +252,7 @@
                         <mat-form-field class="example-full-width">
                             <textarea matInput  #currentChars placeholder="Zeiten Planung" (change)="onChange(personForm)"
                                 formControlName="Zeiten_Planung"></textarea>
-                                <mat-hint align="end">Angaben mit Datum und Stundenanzahl hinterlegen, {{currentChars.value.length}} / 20</mat-hint>
+                                <mat-hint align="end">Angaben mit Datum und Uhrzeit </mat-hint>
                         </mat-form-field>
     
                     </td>
@@ -354,6 +358,27 @@
                     </td>
                 </tr>
             </table>
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput  formControlName="Körpergröße" type="number" min="1" placeholder="Körpergröße">
+    
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="number" min="1" formControlName="konfektion" placeholder="Konfektionsgröße">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Schuhgröße" formControlName="schuhgröße">
+                        </mat-form-field>
+                    </td>
+                </tr>
+    
+            </table>
         </div>
         <div class="yolo">
             <h4>Berufsausbildung: </h4>
@@ -404,6 +429,17 @@
                 <label id="example-radio-group-label" >Gesundheitszeugnis:</label>
 
                 <mat-radio-group class="example-radio-group" formControlName="Gesundheitszeugnis">
+                    <mat-radio-button class="example-radio-button" value="Ja">Ja</mat-radio-button>
+                    <mat-radio-button class="example-radio-button" value="Nein"> Nein </mat-radio-button>
+
+
+
+                </mat-radio-group>
+            </div>
+            <div class="radioContainer">
+                <label id="example-radio-group-label" >Semesterticket</label>
+
+                <mat-radio-group class="example-radio-group" formControlName="Semesterticket">
                     <mat-radio-button class="example-radio-button" value="Ja">Ja</mat-radio-button>
                     <mat-radio-button class="example-radio-button" value="Nein"> Nein </mat-radio-button>
 
@@ -740,42 +776,25 @@
 
         </mat-form-field>
         <h4>Sonstige Angaben</h4>
+        
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput  formControlName="sonstigeangaben" type="number" min="1" placeholder="Körpergröße">
+                    <div class="radioContainer">
+                        <!-- <label id="example-radio-group-label"> 	Arbeiten Sie regelmäßig für andere Agenturen ? </label> -->
+                        <label id="example-radio-group-label">Gewerbeschein:</label>
+                        <mat-radio-group class="example-radio-group" formControlName="GewerbescheinJaNein">
+                            <mat-radio-button class="example-radio-button" value="ja">ja</mat-radio-button>
+                            <mat-radio-button class="example-radio-button" value="nein">nein</mat-radio-button>
+        
+        
+                        </mat-radio-group>
+                    </div>
 
-                    </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput type="number" min="1" formControlName="konfektion" placeholder="Konfektionsgröße">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Schuhgröße" formControlName="schuhgröße">
-                    </mat-form-field>
-                </td>
-            </tr>
-
-        </table>
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Lohnsteuerklasse</mat-label>
-                        <mat-select formControlName="lohnsteuer">
-                            <mat-option *ngFor="let s of selectNum" [value]="s.value">
-                                {{s.viewValue}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Gewerbescheinnummer" formControlName="gewerbenummer">
+                        <input matInput placeholder="Steuernummer oder Steuer ID" formControlName="Steuernummer">
 
                     </mat-form-field>
                 </td>
@@ -800,49 +819,26 @@
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Firmen Name" (change)="onChange(personForm)"
-                            formControlName="Firmen_Name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Telefon" type="number" (change)="onChange(personForm)" formControlName="Telefon">
-                    </mat-form-field>
-
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Email" (change)="onChange(personForm)" formControlName="Email">
-                    </mat-form-field>
-
-                </td>
-            </tr>
-        </table>
-         
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Name der Veranstaltung" (change)="onChange(personForm)"
+                        <input matInput placeholder="Veranstaltungname" (change)="onChange(personForm)"
                             formControlName="Name_der_Veranstaltung">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ort der Veranstaltung" (change)="onChange(personForm)" formControlName="Ort_der_Veranstaltung">
+                        <input matInput placeholder="Veranstaltungsort" (change)="onChange(personForm)" formControlName="Ort_der_Veranstaltung">
                     </mat-form-field>
 
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker" placeholder="Von " formControlName="von_Datum">
+                        <input matInput [matDatepicker]="picker" placeholder="von " formControlName="von_Datum">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput [matDatepicker]="picker1" placeholder="Bis" formControlName="bis_Datum">
+                        <input matInput [matDatepicker]="picker1" placeholder="bis" formControlName="bis_Datum">
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
@@ -850,45 +846,28 @@
 
             </tr>
         </table>
-
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Vorname" (change)="onChange(personForm)"
-                            formControlName="Vorname">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nachname" (change)="onChange(personForm)"
-                            formControlName="Nachname">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
         
-
-       
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Anzahl an Hosts?" (change)="onChange(bekleiForm)"
-                            formControlName="host"  type="number">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Anzahl an Hostessen?" (change)="onChange(bekleiForm)"
+                        <input matInput placeholder="Anzahl an Hostessen" (change)="onChange(bekleiForm)"
                             formControlName="hostess"  type="number">
                     </mat-form-field>
                 </td>
+
                 <td>
                     <mat-form-field class="example-full-width">
-                        <textarea matInput  #currentChars placeholder="Zeiten Planung" (change)="onChange(personForm)"
+                        <input matInput placeholder="Anzahl an Hosts" (change)="onChange(bekleiForm)"
+                            formControlName="host"  type="number">
+                    </mat-form-field>
+                </td>
+                
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput  #currentChars placeholder="Personalzeiten" (change)="onChange(personForm)"
                             formControlName="Zeiten_Planung"></textarea>
-                            <mat-hint align="end">Angaben mit Datum und Stundenanzahl hinterlegen, {{currentChars.value.length}} / 20</mat-hint>
+                            <mat-hint align="end">Angaben mit Datum und Uhrzeit</mat-hint>
                     </mat-form-field>
 
                 </td>
@@ -909,6 +888,51 @@
 
         </table>
 
+
+
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Firmenname" (change)="onChange(personForm)"
+                            formControlName="Firmen_Name">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Telefon" type="number" (change)="onChange(personForm)" formControlName="Telefon">
+                    </mat-form-field>
+
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" (change)="onChange(personForm)" formControlName="Email">
+                    </mat-form-field>
+
+                </td>
+            </tr>
+        </table>
+         
+        
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Vorname" (change)="onChange(personForm)"
+                            formControlName="Vorname">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Nachname" (change)="onChange(personForm)"
+                            formControlName="Nachname">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        
+
+       
         <section class="example-section">
             <mat-checkbox *ngIf="isFilled" [checked]="showDetails" (change)="onChecked(showDetails)"> Wünschen Sie
                 Bekleidung für ihr Personal? </mat-checkbox>

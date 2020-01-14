@@ -69,7 +69,7 @@ export class FormsComponent implements OnInit {
     Zusätzliche_Anmerkungen: new FormControl(null),
     host: new FormControl(null, Validators.required),
     hostess : new FormControl(null, Validators.required),
-    Zeiten_Planung : new FormControl(null, [Validators.required, Validators.minLength(20)]),
+    Zeiten_Planung : new FormControl(null, [Validators.required]),
 
 
   });
@@ -88,7 +88,7 @@ export class FormsComponent implements OnInit {
     Zusätzliche_Anmerkungen: new FormControl(null),
     host: new FormControl(null, Validators.required),
     hostess : new FormControl(null, Validators.required),
-    Zeiten_Planung : new FormControl(null, [Validators.required, Validators.minLength(20)]),
+    Zeiten_Planung : new FormControl(null, [Validators.required]),
 
     kleidsize: new FormControl(null),
     kleidamount: new FormControl(null),
@@ -119,6 +119,7 @@ export class FormsComponent implements OnInit {
     Fuehrerschein: new FormControl(null),
     pkw: new FormControl(null),
     Gesundheitszeugnis: new FormControl(null),
+    Semesterticket : new FormControl(null),
     Englisch: new FormControl(null),
     Franzoesich: new FormControl(null),
     Spanisch: new FormControl(null),
@@ -172,8 +173,9 @@ export class FormsComponent implements OnInit {
     sonstigeangaben: new FormControl(null),
     konfektion: new FormControl(null),
     schuhgröße: new FormControl(null),
-    lohnsteuer: new FormControl(null),
-    gewerbenummer: new FormControl(null),
+    Körpergröße : new FormControl(null),
+    GewerbescheinJaNein: new FormControl(null),
+    Steuernummer: new FormControl(null),
 
 
 
