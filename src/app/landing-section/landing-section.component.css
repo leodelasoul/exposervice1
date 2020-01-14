@@ -413,19 +413,20 @@ content: '';
 
 }
 .circle {
-  height: 552px;
-    width: 535px;
+  /* height: 552px;
+    width: 535px; */
+
+
+    height: 552px;
+    width: 505px;
 }
 #circleContent > p{
   z-index: 23;
   font-size: 1.2em;
   font-weight: bold;
-  left: 124px;
-
+  left: 109px;
   position: absolute;
-  top: 37px;
-
-
+  top: 47px;
 }
 #circleContent{
 
@@ -434,7 +435,7 @@ content: '';
   position: absolute;
   top: 4%;
   z-index: 99;
-  right: 1%;
+  right: 4%;
 }
 
 div.round-button-container{

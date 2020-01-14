@@ -19,13 +19,14 @@ span{
     margin-right: 1%;
 }
 
-@media(max-width:414px) and (max-height: 800px){
+@media only screen and (max-width:414px) and (max-height: 800px){
     .info-footer{
     padding: 25px;
     margin-top: 2%;
     text-align: center;
     position: fixed;
     bottom: -2% !important;
+
     /* width: 97.5%; */
     width : unset
     }

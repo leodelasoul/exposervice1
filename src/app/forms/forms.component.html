@@ -167,7 +167,9 @@
                 <mat-form-field>
                     <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluseamount">
                 </mat-form-field>
-
+                <div class="clothImages">
+                    <img matPrefix src="./assets/bluse.png" height="400px">
+                </div>
                 <mat-action-row>
                     <button mat-button color="warn" (click)="prevStep()">Zurück</button>
                     <button mat-button color="primary" (click)="nextStep()">Weiter</button>
@@ -189,6 +191,9 @@
                 <mat-form-field>
                     <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluse1amount">
                 </mat-form-field>
+                <div class="clothImages">
+                    <img matPrefix src="./assets/bluse.png" height="400px">
+                </div>
 
 
                 <mat-action-row>
@@ -362,18 +367,18 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput  formControlName="Körpergröße" type="number" min="1" placeholder="Körpergröße">
+                            <input matInput  formControlName="Körpergröße"  placeholder="Körpergröße">
     
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput type="number" min="1" formControlName="konfektion" placeholder="Konfektionsgröße">
+                            <input matInput  formControlName="konfektion" placeholder="Konfektionsgröße">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Schuhgröße" formControlName="schuhgröße">
+                            <input matInput type="number" min="1" placeholder="Schuhgröße" formControlName="schuhgröße">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -775,7 +780,7 @@
             <textarea matInput formControlName="wieerfahren"></textarea>
 
         </mat-form-field>
-        <h4>Sonstige Angaben</h4>
+        <h4>Sonstige Angaben:</h4>
         
         <table class="example-full-width" cellspacing="0">
             <tr>
@@ -1038,6 +1043,9 @@
                     <mat-form-field>
                         <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluseamount">
                     </mat-form-field>
+                    <div class="clothImages">
+                        <img matPrefix src="./assets/bluse.jpg" height="400px">
+                    </div>
 
                     <mat-action-row>
                         <button mat-button color="warn" (click)="prevStep()">Zurück</button>
@@ -1060,7 +1068,9 @@
                     <mat-form-field>
                         <input matInput type="number" min="1" placeholder="Anzahl" formControlName="bluse1amount">
                     </mat-form-field>
-
+                    <div class="clothImages">
+                        <img matPrefix src="./assets/bluse.jpg" height="400px">
+                    </div>
 
                     <mat-action-row>
                         <button mat-button color="warn" (click)="prevStep()">Zurück</button>

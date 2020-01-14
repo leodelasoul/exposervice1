@@ -62,14 +62,14 @@ export class FormsComponent implements OnInit {
     kostumamount: new FormControl(null),
 
 
-    Name_der_Veranstaltung: new FormControl(null, Validators.required),
-    von_Datum: new FormControl(null, Validators.required),
-    bis_Datum: new FormControl(null, Validators.required),
-    Ort_der_Veranstaltung: new FormControl(null, Validators.required),
+    Name_der_Veranstaltung: new FormControl(null),
+    von_Datum: new FormControl(null),
+    bis_Datum: new FormControl(null),
+    Ort_der_Veranstaltung: new FormControl(null, ),
     Zusätzliche_Anmerkungen: new FormControl(null),
-    host: new FormControl(null, Validators.required),
-    hostess : new FormControl(null, Validators.required),
-    Zeiten_Planung : new FormControl(null, [Validators.required]),
+    host: new FormControl(null),
+    hostess : new FormControl(null),
+    Zeiten_Planung : new FormControl(null),
 
 
   });
@@ -170,7 +170,6 @@ export class FormsComponent implements OnInit {
 
     teamleitung: new FormControl(null),
     wieerfahren: new FormControl(null),
-    sonstigeangaben: new FormControl(null),
     konfektion: new FormControl(null),
     schuhgröße: new FormControl(null),
     Körpergröße : new FormControl(null),
@@ -264,7 +263,7 @@ export class FormsComponent implements OnInit {
         this.isFilled = false;
         this.showDetails = false;
         this.openDialog();
-      }
+      } 
       else {
         this.validateAllFormFields(this.personForm);
 
@@ -279,10 +278,12 @@ export class FormsComponent implements OnInit {
         this.isFilled = false;
         this.bekleiForm.reset();
         this.showDetails = false;
+        
         this.openDialog();
       }
       else {
         this.validateAllFormFields(this.bekleiForm);
+        console.log("testing")
 
       }
 
